@@ -26,10 +26,10 @@ import About from "./components/about";
 export default function App() {
   return (
     <>
-      <head>
+      <heada>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
+      </heada>
       <body>
         <NavBar /> 
         <Hero />
