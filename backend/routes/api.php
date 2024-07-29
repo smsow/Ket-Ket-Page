@@ -3,7 +3,8 @@
     use App\Http\Controllers\Api\ArticleController;
     use App\Http\Controllers\Api\AccolandController;
     use App\Http\Controllers\AboutController;
-    use App\Http\Controllers\Api\AdvantageController;
+use App\Http\Controllers\Api\ActivityController;
+use App\Http\Controllers\Api\AdvantageController;
     use App\Http\Controllers\Api\StatisticController;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Route;
@@ -108,3 +109,17 @@ Route::prefix('statistics')->group(function () {
     Route::put('/{id}', [StatisticController::class, 'update']); // Mettre à jour une statistique par ID
     Route::delete('/{id}', [StatisticController::class, 'destroy']); // Supprimer une statistique par ID
 });
+
+//route activite
+//Route::apiResource('activities', ActivityController::class);
+
+// Route pour afficher la liste des activités
+Route::get('activities', [ActivityController::class, 'index']);
+// Route pour créer une nouvelle activité
+Route::post('activities', [ActivityController::class, 'store']);
+// Route pour afficher une activité spécifique
+Route::get('activities/{id}', [ActivityController::class, 'show']);
+// Route pour mettre à jour une activité spécifique
+Route::put('activities/{id}', [ActivityController::class, 'update']);
+// Route pour supprimer une activité spécifique
+Route::delete('activities/{id}', [ActivityController::class, 'destroy']);
