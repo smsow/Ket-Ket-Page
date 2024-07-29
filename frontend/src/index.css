@@ -17,6 +17,7 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: auto;
+  
 
 }
 
@@ -114,7 +115,7 @@ color: #000000;
 
 .Navlinks {
   position: relative;
-  left: 6%;
+  left: 5%;
   gap: 60px;
   bottom: 3px;
 }
@@ -175,5 +176,13 @@ box-shadow: 5px 20px 40px rgba(0, 0, 0, 0.35);
 }
 
 .hero-image-container{
+  z-index: 2;
+}
+
+.macbook {
+  z-index: 10;
+}
+
+#half-blue-circle {
   z-index: 2;
 }

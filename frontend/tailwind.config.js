@@ -34,16 +34,20 @@ module.exports = {
         'dark-gray': '#333333',
         'main-red': "#C8102E",
         'main-blue': "#1D428A",
+        'main-black': "#333333",
       },
 
       textColor: {
         'main-blue': "#1D428A",
+        'main-black': "#333333",
       },
 
       backgroundImage: {
         'hero-texture': "url('../public/img/dots.png')",
         'hero-image': "url('../public/img/hero-image.png')",
         'test-image': "url('../../../public/storage/images/vy1aimQe7qacefWO1eqroIxX2xBCS3-metaU2NyZWVuc2hvdCAyMDI0LTA3LTIyIGF0IDEwLjExLjIyLnBuZw==-.png')",
+        'dots-about': "url(../public/img/dots_about.png)",
+        'macbook-about': "url(../public/img/macbook.png)"
       },
    
     },

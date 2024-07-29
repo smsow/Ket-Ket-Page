@@ -32,8 +32,10 @@ export default function App() {
       </heada>
       <body>
         <NavBar /> 
+     
         <Hero />
         <About />
+      
       </body>
     </>
   );

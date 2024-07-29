@@ -12,7 +12,7 @@ export default function NavBar() {
                 <a href="#service">NOS SERVICES</a>
                 <a href="#partenaire">PARTENAIRES</a>
             </div>
-                <div className="ButtonContainer absolute left-[75.2%]  flex place-content-between 
+                <div className="ButtonContainer absolute left-[74.2%]  flex place-content-between 
                 max-ml:w-[26.85%] max-ml:left-[72%] max-[1200px]:hidden">
                 <button className="relative bg-main-blue border-2 border-[#1D428A] group-hover:fill-[#1D428A] hover:path-[#1D428A] hover:stroke-[#1D428A] hover:bg-white hover:text-[#1D428A] text-xl  text-white w-[41.5%] font-light h-[100%] rounded-full flex justify-center items-center gap-[19px]">
                 <img className="w-[24px] h-[24px] max-ml:w-[20px] max-ml:h-[20px]" src="../svg/search.svg" alt="..."></img>
