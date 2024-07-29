@@ -4,6 +4,7 @@
     use App\Http\Controllers\Api\AccolandController;
     use App\Http\Controllers\AboutController;
     use App\Http\Controllers\Api\AdvantageController;
+    use App\Http\Controllers\Api\StatisticController;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Route;
 
@@ -97,3 +98,13 @@ Route::put('advantages/{id}', [AdvantageController::class, 'update']);
 
 // Supprimer un avantage par ID
 Route::delete('advantages/{id}', [AdvantageController::class, 'destroy']);
+
+//route static
+
+Route::prefix('statistics')->group(function () {
+    Route::get('/', [StatisticController::class, 'index']); // Récupérer toutes les statistiques
+    Route::post('/', [StatisticController::class, 'store']); // Créer une nouvelle statistique
+    Route::get('/{id}', [StatisticController::class, 'show']); // Récupérer une statistique par ID
+    Route::put('/{id}', [StatisticController::class, 'update']); // Mettre à jour une statistique par ID
+    Route::delete('/{id}', [StatisticController::class, 'destroy']); // Supprimer une statistique par ID
+});

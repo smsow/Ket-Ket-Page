@@ -18,7 +18,7 @@ class AccolandResource extends Resource
     protected static ?string $model = Accoland::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-folder';
-    
+
     public static function form(Form $form): Form
     {
         return $form
@@ -33,6 +33,20 @@ class AccolandResource extends Resource
                     ->image()
                     ->maxSize(5 * 1024) // 5MB
                     ->required(),
+                Forms\Components\TextInput::make('description1')
+                    ->maxLength(255),
+                Forms\Components\FileUpload::make('image1')
+                    ->disk('public') // Ensure the disk is configured in config/filesystems.php
+                    ->directory('images') // Path to save images
+                    ->image()
+                    ->maxSize(5 * 1024), // 5MB
+                Forms\Components\TextInput::make('description2')
+                    ->maxLength(255),
+                Forms\Components\FileUpload::make('image2')
+                    ->disk('public') // Ensure the disk is configured in config/filesystems.php
+                    ->directory('images') // Path to save images
+                    ->image()
+                    ->maxSize(5 * 1024), // 5MB
             ]);
     }
 
@@ -41,11 +55,20 @@ class AccolandResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('description')
-                ->limit(50), // Limit the displayed length
-
+                    ->limit(50), // Limit the displayed length
                 Tables\Columns\ImageColumn::make('image')
-                ->disk('public') // Ensure the disk is configured in config/filesystems.php
-                ->label('Image'), // Optional label for the column
+                    ->disk('public') // Ensure the disk is configured in config/filesystems.php
+                    ->label('Image'), // Optional label for the column
+                Tables\Columns\TextColumn::make('description1')
+                    ->limit(50), // Limit the displayed length
+                Tables\Columns\ImageColumn::make('image1')
+                    ->disk('public') // Ensure the disk is configured in config/filesystems.php
+                    ->label('Image 1'), // Optional label for the column
+                Tables\Columns\TextColumn::make('description2')
+                    ->limit(50), // Limit the displayed length
+                Tables\Columns\ImageColumn::make('image2')
+                    ->disk('public') // Ensure the disk is configured in config/filesystems.php
+                    ->label('Image 2'), // Optional label for the column
             ])
             ->filters([
                 // Define filters if needed

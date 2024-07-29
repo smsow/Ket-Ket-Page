@@ -15,30 +15,24 @@ class AccolandController extends Controller
     // Récupérer tous les Accolands
     public function index()
     {
-        $accolands = Accoland::all(); // Sélectionner uniquement description et image
+        $accolands = Accoland::all(['description', 'image', 'description1', 'image1', 'description2', 'image2']); // Sélectionner les nouveaux champs également
         return response()->json([
             'message' => 'Accolands retrieved successfully.',
             'data' => $accolands
         ], Response::HTTP_OK);
     }
-    
+
 
     // Créer un nouvel Accoland
     public function store(StoreAccolandRequest $request)
     {
-        $request->validate([
-            'description' => 'required|string|max:1000', // Validation for description
-            'image' => 'required|string|max:255', // Adjust validation if not using URLs
-        ]);
+        $validatedData = $request->validated();
 
-        $accoland = Accoland::create([
-            'description' => $request->description,
-            'image' => $request->image, // Ensure proper handling of the image path or URL
-        ]);
+        $accoland = Accoland::create($validatedData);
 
         return response()->json([
             'message' => 'Accoland created successfully.',
-            'data' => $accoland->only(['description', 'image']) // Return only description and image
+            'data' => $accoland->only(['description', 'image', 'description1', 'image1', 'description2', 'image2']) // Retourner tous les champs
         ], Response::HTTP_CREATED);
     }
 
@@ -49,7 +43,7 @@ class AccolandController extends Controller
             $accoland = Accoland::findOrFail($id);
             return response()->json([
                 'message' => 'Accoland retrieved successfully.',
-                'data' => $accoland->only(['description', 'image']) // Retourner uniquement description et image
+                'data' => $accoland->only(['description', 'image', 'description1', 'image1', 'description2', 'image2']) // Retourner tous les champs
             ], Response::HTTP_OK);
         } catch (ModelNotFoundException $e) {
             return response()->json([
@@ -64,22 +58,13 @@ class AccolandController extends Controller
         try {
             $accoland = Accoland::findOrFail($id);
 
-            $request->validate([
-                'description' => 'sometimes|string|max:1000', // Validation pour description
-                'image' => 'sometimes|string', // Validation pour image
-            ]);
+            $validatedData = $request->validated();
 
-            $data = $request->only(['description']);
-
-            if ($request->has('image')) {
-                $data['image'] = $request->image; // Assurez-vous de gérer correctement le chemin d'image
-            }
-
-            $accoland->update($data);
+            $accoland->update($validatedData);
 
             return response()->json([
                 'message' => 'Accoland updated successfully.',
-                'data' => $accoland->only(['description', 'image']) // Retourner uniquement description et image
+                'data' => $accoland->only(['description', 'image', 'description1', 'image1', 'description2', 'image2']) // Retourner tous les champs
             ], Response::HTTP_OK);
         } catch (ModelNotFoundException $e) {
             return response()->json([
