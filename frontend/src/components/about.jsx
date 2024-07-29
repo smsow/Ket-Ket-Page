@@ -45,7 +45,7 @@ export default function About() {
 
             </div>
             <div className="about-blocks flex h-[65%] w-[100%] bg-orange-300 max-lg:flex-col max-lg:h-[80%]  ">
-                <div className="image-bundle ">
+                <div className="image-bundles ">
 
                 </div>
             </div>
