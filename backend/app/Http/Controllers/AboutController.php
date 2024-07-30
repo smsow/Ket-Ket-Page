@@ -6,6 +6,7 @@ use App\Http\Requests\StoreAboutRequest;
 use App\Http\Requests\UpdateAboutRequest;
 use App\Models\About;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 class AboutController extends Controller
 {
@@ -17,7 +18,10 @@ class AboutController extends Controller
     public function index(): JsonResponse
     {
         $abouts = About::all();
-        return response()->json($abouts);
+        return response()->json([
+            'message' => 'Abouts retrieved successfully.',
+            'data' => $abouts
+        ], Response::HTTP_OK);
     }
 
     /**

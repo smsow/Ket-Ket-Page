@@ -39,8 +39,11 @@ export default function Hero() {
 
     // Construct the absolute URL for the images
     const imageUrl = articleWithId1 ? `http://localhost:8000/storage/${articleWithId1.image}` : '';
-    const imageUrl1 = awards ? `http://localhost:8000/storage/${awards[0]?.image}` : ''; // Assuming awards is an array
+    const imageAward1 = awards ? `http://localhost:8000/storage/${awards.image}` : '';
+    const imageAward2 = awards ? `http://localhost:8000/storage/${awards.image1}` : '';
+    const imageAward3 = awards ? `http://localhost:8000/storage/${awards.image2}` : ''; // Assuming awards is an array
 
+    console.log(articleWithId1);
 
 
 
@@ -59,6 +62,7 @@ export default function Hero() {
                         <div className="hero-subtitle min-h-[18%] w-[51%]  ml-[12.8%] mt-[3.25%] max-2xl:ml-[12%] max-2xl:w-[60%] max-lg:ml-[2.5%] max-lg:w-[65%] max-md:w-[95%]">
                             <div className="text-h5 leading-h5 font-arial max-md:text-h6 max-md:leading-h6">
                             {articleWithId1?.subtitle}
+                            
                             </div>
                         </div>
                         <div className="email-input h-[15%] w-[64%] ml-[12.45%] mt-[6.5%] flex-col max-lg:ml-[2.5%] max-lg:w-[70%] max-lg:mt-[3%] max-lg:h-[25%] max-2xl:ml-[12.5%] max-md:w-[95%] max-md:h-[20%]">
@@ -81,7 +85,7 @@ export default function Hero() {
                         <div className="accolades h-[10%] mt-[5%] w-[87.5%]  ml-auto flex gap-[1%] max-ml:ml-[12.5%] max-2xl:flex-wrap max-2xl:place-content-start max-2xl:gap-[5%] max-lg:flex-wrap max-lg:ml-[2.5%] max-lg:h-auto max-lg:w-[90%] max-2xl:h-[20%] max-xl:w-[90%]">
 
                             <div className="award  w-[280px] h-[70px] flex place-content-start items-center gap-[9.55%] max-[1690px]:gap-[5%] max-2xl:gap[15%] max-lg:mt-[30px]">
-                                <img className="h-[59px] w-[58px]" src="./img/award1.png" alt="award-icon-1" />
+                                <img className="h-[59px] w-[58px]" src={imageAward1} alt="award-icon-1" />
                                 <div className="text-h6 leading-6 font-arial font-bold mb-2">
                                 {awards?.description}
                                 </div>
@@ -89,17 +93,17 @@ export default function Hero() {
 
 
                             <div className="award  w-[280px] h-[70px] flex place-content-start items-center gap-[9.5%] max-[1690px]:gap-[5%] max-2xl:gap[15%] max-lg:mt-[30px]">
-                                <img className="h-[58px] w-[58px]" src="./img/award2.png" alt="award-icon-1" />
+                                <img className="h-[58px] w-[58px]" src={imageAward2} alt="award-icon-1" />
                                 <div className="text-h6 leading-6 font-arial font-bold mb-2">
-                                {awards?.description}
+                                {awards?.description1}
 
                                 </div>
                             </div>
 
                             <div className="award  w-[280px] h-[70px] flex place-content-center items-center gap-[9.5%] max-[1690px]:gap-[5%] max-2xl:gap[15%] max-lg:mt-[30px]">
-                                <img className="h-[64px] w-[86px]" src="./img/award3.png" alt="award-icon-1" />
+                                <img className="h-[64px] w-[86px]" src={imageAward3} alt="award-icon-1" />
                                 <div className="text-h6 leading-6 font-arial font-bold mb-2">
-                                {awards?.description}
+                                {awards?.description2}
                                 </div>
                             </div>
     

@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&display=swap');
 
 html {
@@ -184,5 +185,9 @@ box-shadow: 5px 20px 40px rgba(0, 0, 0, 0.35);
 }
 
 #half-blue-circle {
-  z-index: 2;
+  z-index: 1;
+}
+
+#above {
+  z-index: 10;
 }
