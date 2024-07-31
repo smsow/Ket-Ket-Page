@@ -29,6 +29,7 @@ module.exports = {
         'arial': ['Arial', 'sans-serif'],
         'inter': ['Inter', 'sans-serif'],
         'quicksand': ['Quicksand', 'sans-serif'],
+        'r-mono': ['Roboto Mono', 'monospace'],
       },
       backgroundColor: {
         'dark-gray': '#333333',
@@ -40,6 +41,7 @@ module.exports = {
       textColor: {
         'main-blue': "#1D428A",
         'main-black': "#333333",
+        'custom-white': 'rgba(255, 255, 255, 0.05)',
       },
 
       backgroundImage: {
@@ -47,7 +49,8 @@ module.exports = {
         'hero-image': "url('../public/img/hero-image.png')",
         'test-image': "url('../../../public/storage/images/vy1aimQe7qacefWO1eqroIxX2xBCS3-metaU2NyZWVuc2hvdCAyMDI0LTA3LTIyIGF0IDEwLjExLjIyLnBuZw==-.png')",
         'dots-about': "url(../public/img/dots_about.png)",
-        'macbook-about': "url(../public/img/macbook.png)"
+        'macbook-about': "url(../public/img/macbook.png)",
+        'dots-advantage': "url(../public/img/dot-adv.png)",
       },
    
     },

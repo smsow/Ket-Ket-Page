@@ -22,6 +22,7 @@ import React from 'react'; // Import React
 import NavBar from "./components/navbar";
 import Hero from "./components/hero";
 import About from "./components/about";
+import Advantage from './components/advantage';
 
 export default function App() {
   return (
@@ -32,10 +33,13 @@ export default function App() {
       </head>
       <body>
         <NavBar /> 
-     
         <Hero />
+        <div className="">
         <About />
-      
+        </div>
+        <div className="">
+        <Advantage />
+        </div>
       </body>
     </>
   );

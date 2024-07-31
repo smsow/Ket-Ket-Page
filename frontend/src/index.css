@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 html {
   box-sizing: border-box;
@@ -15,14 +16,20 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   height: 100vh;
   width: 100vw;
-  overflow: auto;
-  
-
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-y: auto;   /* Allow vertical scrolling if needed */
+  box-sizing: border-box; /* Include padding and border in the element’s total width and height */
 }
 
-
+main {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column layout by default */
+  grid-template-rows: auto; /* Space between grid items */
+}
 
 .title-Arial {
   /* Title arial */
@@ -191,3 +198,15 @@ box-shadow: 5px 20px 40px rgba(0, 0, 0, 0.35);
 #above {
   z-index: 10;
 }
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  
+  .div1 { grid-area: 2 / 2 / 7 / 4; }
+  .div2 { grid-area: 4 / 5 / 6 / 8; }
+  .div3 { grid-area: 1 / 1 / 3 / 8; }
