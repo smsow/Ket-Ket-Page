@@ -6,8 +6,10 @@
         use App\Http\Controllers\Api\ActivityController;
         use App\Http\Controllers\Api\AdvantageController;
     use App\Http\Controllers\Api\ApiPartenaireController;
-    use App\Http\Controllers\Api\ServiceController as ApiServiceController;
-        use App\Http\Controllers\Api\StatisticController;
+use App\Http\Controllers\Api\NumberController;
+use App\Http\Controllers\Api\ServiceController as ApiServiceController;
+use App\Http\Controllers\Api\StaticDecouverteController;
+use App\Http\Controllers\Api\StatisticController;
         use App\Http\Controllers\ServiceController;
         use Illuminate\Http\Request;
             use Illuminate\Support\Facades\Route;
@@ -152,3 +154,16 @@
     Route::get('partenaires/{partenaire}', [ApiPartenaireController::class, 'show']); // Affiche un partenaire spécifique
     Route::put('partenaires/{partenaire}', [ApiPartenaireController::class, 'update']); // Met à jour un partenaire spécifique
     Route::delete('partenaires/{partenaire}', [ApiPartenaireController::class, 'destroy']); // Supprime un partenaire spécifique
+// Routes pour StaticDecouverteController
+Route::get('static-decouvertes', [StaticDecouverteController::class, 'index']); // Liste toutes les découvertes statiques
+Route::post('static-decouvertes', [StaticDecouverteController::class, 'store']); // Crée une nouvelle découverte statique
+Route::get('static-decouvertes/{static_decouverte}', [StaticDecouverteController::class, 'show']); // Affiche une découverte statique spécifique
+Route::put('static-decouvertes/{static_decouverte}', [StaticDecouverteController::class, 'update']); // Met à jour une découverte statique spécifique
+Route::delete('static-decouvertes/{static_decouverte}', [StaticDecouverteController::class, 'destroy']); // Supprime une découverte statique spécifique
+
+// Routes pour NumberController
+Route::get('numbers', [NumberController::class, 'index']); // Liste tous les nombres
+Route::post('numbers', [NumberController::class, 'store']); // Crée un nouveau nombre
+Route::get('numbers/{number}', [NumberController::class, 'show']); // Affiche un nombre spécifique
+Route::put('numbers/{number}', [NumberController::class, 'update']); // Met à jour un nombre spécifique
+Route::delete('numbers/{number}', [NumberController::class, 'destroy']); // Supprime un nombre spécifique
