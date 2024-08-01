@@ -37,7 +37,7 @@ export default function About() {
     return (
         
         <>
-        <div className="about-title relative h-[50.8%] pt-[7.8%] w-[100%] flex place-content-evenly max-lg:mt-[30%]">
+        <div className="about-title relative h-[50.8%] pt-[7.8%] w-[100%] flex place-content-evenly max-lg:mt-[30%] max-sm:mt-[40%] max-[400px]:mt-[50%] max-[330px]:mt-[60%]">
             <div className="squibbly-container w-[23%] h-[100%] max-lg:hidden">
                 <div className="squib ml-[29%] mt-[18.25%] max-ml:mt-[40%]">
                   <img className="w-[35%]" src="../img/blue-vector.png" alt="" />

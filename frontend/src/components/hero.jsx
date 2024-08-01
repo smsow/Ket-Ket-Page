@@ -53,7 +53,7 @@ export default function Hero() {
                     <div className="hero-text-container relative w-[52%] h-[100%] flex-col overflow-visible max-lg:w-[100%] max-lg:h-[40%] max-lg:mt-12 max-md:h-[60%]">
                         <div className="hero-text relative ml-[10.8%] h-[38%] w-[59%] bg-white max-lg:ml-[0%] max-lg:w-[65%] max-md:w-[100%] max-md:h-[30.5%]">
                             <div className="hero-title ml-[0.58%] mt-[1.25%] w-[100%] h-[100%] bg-hero-texture flex items-center">
-                                <div className="text-title relative font-arial font-bold leading-title left-7 text-main-blue max-lg:text-h1 max-lg:leading-h1 max-xs:text-h2 max-xs:leading-h2">
+                                <div className="text-title relative font-arial font-bold leading-title left-7 text-main-blue max-lg:text-h1 max-lg:leading-h1 max-xs:text-h2 max-xs:leading-h2 max-lg:left-[2%] max-lg:w-[90%]">
                                 {articleWithId1?.title ? articleWithId1.title : "WELLNESS AT STATIC"}
 
                                     
@@ -111,8 +111,8 @@ export default function Hero() {
                         </div>
                     </div>
                     
-                    <div className="hero-image-container  relative w-[48%] h-[93%]  max-lg:w-[100%] max-lg:h-[60%] max-lg:flex max-lg:place-content-center max-md:h-[50%] ">
-                    <div className="relative h-[71%] w-[71.8%] mt-[5.75%] ml-[15%] right-[1.9%] hero-image-shadow  bg-no-repeat bg-cover bg-center max-lg:h-[95%] max-lg:ml-[0%] max-lg:w-[95%] max-lg:mt-[2%]"
+                    <div className="hero-image-container  relative w-[48%] h-[93%]  max-lg:w-[100%] max-lg:h-[60%] max-lg:flex max-lg:m-auto max-lg:place-content-center max-md:h-[50%] ">
+                    <div className="relative h-[71%] w-[71.8%] mt-[5.75%] ml-[15%] right-[1.9%] hero-image-shadow  bg-no-repeat bg-cover bg-center max-lg:h-[95%] max-lg:ml-[3%] max-lg:px-auto max-lg:w-[95%] max-lg:mt-[2%]"
                     style={{
                         backgroundImage: imageUrl ? `url(${imageUrl})` : 'url(../img/hero-image.png)',
                         backgroundSize: 'cover',
