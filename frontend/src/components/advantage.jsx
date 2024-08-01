@@ -73,12 +73,12 @@ export default function Advantage() {
                 <div className="text-center pt-[2.5%] mb-[1.25%] w-[90%] text-main-blue max-sm:pt-[0.4%]">
                     <div className="font-arial font-bold text-h3 w-[100vw] leading-[20px] mr-[34.2%] max-sm:leading-h3 ">
                         <br className='max-sm:hidden' />
-                        <br  className='max-sm:hidden' />
+                        <br  className='' />
                         <br />
                     {advantage?.titre ? advantage.titre : "NOS ATOUTS, VOTRE AVANTAGE"}
                     </div>
                 
-            <section className="h-[440px] w-[1620px] ml-[11.5%] relative pt-[2%] overflow-x-scroll overflow-y-hidden max-2xl:ml-[7%] max-ml:ml-[4%] max-lg:ml-[3%] max-sm:ml-[1%] max-sm:pt-[3%]" >
+            <section className="h-[440px] w-[1620px] ml-[11.5%] relative pt-[2%] overflow-x-scroll overflow-y-hidden max-2xl:ml-[7%] max-ml:ml-[4%] max-lg:ml-[3%] max-sm:ml-[1%] max-sm:pt-[3%] max-sm:mt-[2%]" >
                   
             <div className="advantage-container flex flex-nowrap h-[100%] overflow-hidden w-[3239px] gap-[20px] relative max-2xl:h-[90%]">
                 <div className="relative adv-card bg-main-blue h-[100%] w-[524px] rounded-[15px] flex-col max-sm:w-[320px]">
@@ -211,9 +211,9 @@ export default function Advantage() {
                     <div className="h-[25%] w-[16%] rounded-[50px] bg-[#D9D9D9] mt-auto mb-auto ml-[7.5%]"></div>
             </div>   
         
-        <div className="advantage-blocks mt-[7%] flex-col h-[45%] w-[100%] max-2xl:mt-[10%] max-ml:mt-[40%] max-xl:mt-[50%] max-md:mt-[60%] max-sm:mt-[40%] max-[400px]:mt-[70%]">
-        <img className="relative m-auto h-[100%] max-2xl:hidden" src="../img/stats_vector.png" alt="" /> 
-        <div className="h-[30vh] -mt-[16.25%] w-[80%] m-auto  flex flex-wrap place-content-evenly max-lg:h-[35vh] max-lg:-mt-[40%] max-sm:h-[40vh] max-[400px]:-mt-[2%] ">
+        <div className="advantage-blocks mt-[7%] flex-col h-[45%] w-[100%] max-2xl:mt-[10%] max-ml:mt-[5%] max-xl:mt-[9%] max-lg:mt-[12%] max-sm:mt-[20%] max-[400px]:mt-[10%]">
+        <img className="relative m-auto h-[100%] max-2xl:opacity-0" src="../img/stats_vector.png" alt="" /> 
+        <div className="h-[30vh] -mt-[16.25%] w-[80%] m-auto  flex flex-wrap place-content-evenly max-lg:h-[35vh] max-lg:-mt-[40%] max-sm:h-[38vh] max-[400px]:mt-[10%] max-[380px]:mt-[40%] ">
             <div className="h-[80%] w-[437px] flex-col mt-auto mb-auto">
             <div className="text-[120px] text-center font-r-mono font-bold text-main-black"> {stat?.clients_satisfaits ? stat.clients_satisfaits : "750"}+</div>
             <div className="text-h4 text-center -mt-[2%] leading-h4 font-r-mono font-bold">{stat?.additional_column1 ? stat.additional_column1 : "Client satisfaits"}</div>
