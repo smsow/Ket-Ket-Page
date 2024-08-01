@@ -62,8 +62,8 @@ export default function About() {
         <img className="absolute left-[17%] w-[9.5%] -top-[9.45%]" src="../img/blue-x.png" alt="" />
         <img className="absolute left-[49%] w-[8%] -top-[0.25%]" src="../img/red-x.png" alt="" />
             <div className="about-blocks flex h-[45%] w-[100%] max-lg:flex-col max-lg:space-y-[10%] max-lg:h-[70%]  ">
-                <div className="about-des1 w-[38%] ml-[5.25%] h-[100%] flex-col max-ml:w-[48.5%] max-ml:ml-[0] max-lg:w-[95%] max-lg:m-auto">
-                    <div className="text-h3 leading-h3 font-bold font-quicksand text-main-blue mt-[14.55%]">
+                <div className="about-des1 w-[38%] ml-[5.25%] h-[100%] flex-col max-ml:w-[48.5%] max-ml:ml-[0] max-lg:w-[95%] max-lg:ml-auto">
+                    <div className="text-h3 leading-h3 font-bold font-quicksand text-main-blue mt-[14.55%] ">
                     {about?.section1_title ? about.section1_title : "Ket Ket, C’est Quoi?"}
                                         </div>
 
@@ -112,8 +112,8 @@ export default function About() {
 
                 </div>
 
-                <div className="about-des1 w-[45%] mt-[0.35%] ml-[17.25%] h-[80%] flex-col max-ml:w-[48.5%] max-ml:ml-auto max-lg:w-[95%] max-lg:m-auto ">
-                    <div className="text-h3 leading-h3 font-bold font-quicksand text-main-blue mt-[16.55%]">
+                <div className="about-des1 w-[45%] mt-[0.35%] ml-[17.25%] h-[80%] flex-col max-ml:w-[48.5%] max-ml:ml-auto max-lg:w-[95%]">
+                    <div className="text-h3 leading-h3 font-bold font-quicksand text-main-blue mt-[16.55%] max-lg:ml-auto ">
                     {about?.section2_title ? about.section2_title : "Accès au sport & promotion d'un mode de vie actif"}
                                         </div>
 
@@ -125,8 +125,8 @@ export default function About() {
 
             </div>
 
-            <div className="about-blocks mt-[1.25%] flex h-[45%] w-[100%] max-lg:flex-col max-lg:h-[100%] max-md:mt-[30%] max-sm:mt-[30%]">
-                <div className="about-des1 w-[50%] ml-[5.25%] h-[100%]  flex-col max-ml:w-[48.5%] max-ml:ml-[0] max-lg:w-[95%] max-lg:h-[40%] max-lg:m-auto">
+            <div className="about-blocks mt-[1.25%] flex h-[45%] w-[100%] max-lg:flex-col max-lg:h-[100%] max-md:mt-[30%] max-sm:mt-[30%] max-lg:mt-[10%]">
+                <div className="about-des1 w-[50%] ml-[5.25%] h-[100%]  flex-col max-ml:w-[48.5%] max-ml:ml-[0] max-lg:w-[95%] max-lg:h-[40%] max-lg:ml-auto ">
                     <div className="text-h3 leading-[49px] font-bold font-quicksand text-main-blue mt-[6.55%]">
                     {about?.description ? about.description : "Bien-être global et développement personnel"}
                                         </div>
@@ -137,7 +137,7 @@ export default function About() {
 
             </div>
 
-            <div className="relative h-[45%] w-[48%] ml-[5.3%] mt-[1.5%] max-ml:w-[48.5%] max-ml:ml-auto max-lg:w-[100%] max-lg:m-auto max-lg:mt-[0] max-sm:mt-[15%]">
+            <div className="relative h-[45%] w-[48%] ml-[5.3%] mt-[1.5%] max-ml:w-[48.5%] max-ml:ml-auto max-lg:w-[100%] max-lg:m-auto max-lg:mt-[5%] max-sm:mt-[15%]">
             <img 
       className="macbook relative w-[92.5%] rounded-[20px] max-lg:m-auto" 
       src={aboutImage5 ? aboutImage5 : "../img/about5.png"} 
