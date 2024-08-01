@@ -45,7 +45,7 @@ export default function About() {
             </div>
             <div className="relative w-[50vw] h-[38vh] mx-auto bg-dots-about bg-center bg-no-repeat grid place-items-center max-lg:w-[86%]">
                 <div className="text-center w-[90%] font-arial font-bold text-h1 leading-h1 text-main-black max-ml:text-h2 max-ml:leading-h2 max-sm:text-h3 max-sm:leading-h3">
-                {about?.title}
+                {about?.title ? about.title : "Nous Sommes Ket Ket"}
 
                 </div>
             </div>
@@ -64,11 +64,11 @@ export default function About() {
             <div className="about-blocks flex h-[45%] w-[100%] max-lg:flex-col max-lg:space-y-[10%] max-lg:h-[70%]  ">
                 <div className="about-des1 w-[38%] ml-[5.25%] h-[100%] flex-col max-ml:w-[48.5%] max-ml:ml-[0] max-lg:w-[95%] max-lg:m-auto">
                     <div className="text-h3 leading-h3 font-bold font-quicksand text-main-blue mt-[14.55%]">
-                    {about?.section1_title}
+                    {about?.section1_title ? about.section1_title : "Ket Ket, C’est Quoi?"}
                                         </div>
 
                 <div className="text-h6 font-quicksand leading-[28px] font-semibold w-[100%]  mt-[4%]">
-                {about?.section1_content}
+                {about?.section1_content ? about.section1_content : "Ket Ket est une entreprise sénégalaise dédiée à l'amélioration du bien-être des salariés en simplifiant l'accès aux structures sportives amateurs, en proposant des solutions d'adhésion aux entreprises pour soutenir et financer la pratique sportive de leurs employés."}
                 </div>
 
             </div>
@@ -76,7 +76,7 @@ export default function About() {
             <div className="relative h-[45%] w-[48%] ml-[15.3%] mt-[0.15%] max-ml:w-[48.5%] max-ml:ml-auto max-lg:w-[100%] max-lg:m-auto">
             <img 
       className="macbook relative w-[92%] max-lg:m-auto max-sm:mt-[12.5%]" 
-      src={aboutImage1} 
+      src={aboutImage1 ? aboutImage1 : "../img/macbook.png" } 
       alt="Description of the image" 
     />          
       <img  id="half-blue-circle" className="absolute w-[26.6%] left-[15.5%] -bottom-[7.65%] max-2xl:bottom-[25%] max-ml:bottom-[20%]" src="../img/blue-circles.png" alt=""/>
@@ -88,14 +88,14 @@ export default function About() {
                 <div className="image-bundles w-[35.1%] ml-[5.1%] mt-[5%] h-[77.5%]  max-lg:w-[95%] max-lg:h-[100%] max-ml:w-[48.5%] max-ml:ml-[0] max-lg:m-auto">
                     <div className="macbook min-h-[215px] mt-[5%] w-[89.95%]  rounded-[20px] z-6 max-lg:h-[37.8] max-lg:ml-[10%] max-lg:w-[80.95%] max-sm:mt-[12.5%]"  
                     style={{
-                        backgroundImage: aboutImage2 ? `url(${aboutImage2})` : 'none',
+                        backgroundImage: aboutImage2 ? `url(${aboutImage2})` : 'url(../img/about2.png)',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center'
                     }} > </div>
 
                     <div  className="macbook vertical-image min-h-[325px] w-[40%] -mt-[12%] ml-[4.9%] z-6 rounded-[20px]  z-10 max-lg:ml-[20%] max-lg:-mt-[6%] max-lg:h-[60%] max-lg:w-[25%] max-sm:w-[35%]"
                      style={{
-                        backgroundImage: aboutImage3 ? `url(${aboutImage3})` : 'none',
+                        backgroundImage: aboutImage3 ? `url(${aboutImage3})` : 'url(../img/about3.png)',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center'
                     }}>
@@ -114,11 +114,11 @@ export default function About() {
 
                 <div className="about-des1 w-[45%] mt-[0.35%] ml-[17.25%] h-[80%] flex-col max-ml:w-[48.5%] max-ml:ml-auto max-lg:w-[95%] max-lg:m-auto ">
                     <div className="text-h3 leading-h3 font-bold font-quicksand text-main-blue mt-[16.55%]">
-                    {about?.section2_title}
+                    {about?.section2_title ? about.section2_title : "Accès au sport & promotion d'un mode de vie actif"}
                                         </div>
 
                 <div className="text-h6 font-quicksand leading-[28px] font-semibold w-[95%]  mt-[4.8%]">
-                {about?.section2_content}
+                {about?.section2_content ? about.section2_content : "Ket Ket facilite l'accès des salariés à des installations sportives de qualité, encourage une pratique régulière du sport et soutient le financement des activités sportives par les entreprises pour promouvoir un mode de vie actif, réduire le stress et renforcer les liens sociaux."}
                 </div>
 
             </div>
@@ -128,11 +128,11 @@ export default function About() {
             <div className="about-blocks mt-[1.25%] flex h-[45%] w-[100%] max-lg:flex-col max-lg:h-[100%] max-md:mt-[30%] max-sm:mt-[30%]">
                 <div className="about-des1 w-[50%] ml-[5.25%] h-[100%]  flex-col max-ml:w-[48.5%] max-ml:ml-[0] max-lg:w-[95%] max-lg:h-[40%] max-lg:m-auto">
                     <div className="text-h3 leading-[49px] font-bold font-quicksand text-main-blue mt-[6.55%]">
-                    {about?.description}
+                    {about?.description ? about.description : "Bien-être global et développement personnel"}
                                         </div>
 
                 <div className="text-h6 font-quicksand leading-[28px] font-semibold w-[90%] mt-[3.25%]">
-                {about?.extra_info}
+                {about?.extra_info ? about.extra_info : "Chez Ket Ket, notre engagement est de promouvoir le bien-être des salariés par des programmes sportifs qui améliorent la santé physique, renforcent la confiance en soi et soutiennent le développement personnel pour une atmosphère de travail équilibrée et productive."}
                 </div>
 
             </div>
@@ -140,7 +140,7 @@ export default function About() {
             <div className="relative h-[45%] w-[48%] ml-[5.3%] mt-[1.5%] max-ml:w-[48.5%] max-ml:ml-auto max-lg:w-[100%] max-lg:m-auto max-lg:mt-[0] max-sm:mt-[15%]">
             <img 
       className="macbook relative w-[92.5%] rounded-[20px] max-lg:m-auto" 
-      src={aboutImage5} 
+      src={aboutImage5 ? aboutImage5 : "../img/about5.png"} 
       alt="Description of the image" 
     />          
             </div>

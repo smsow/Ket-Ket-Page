@@ -75,7 +75,7 @@ export default function Advantage() {
                         <br className='max-sm:hidden' />
                         <br  className='max-sm:hidden' />
                         <br />
-                    {advantage?.titre}
+                    {advantage?.titre ? advantage.titre : "NOS ATOUTS, VOTRE AVANTAGE"}
                     </div>
                 
             <section className="h-[440px] w-[85vw] ml-[11.5%] relative pt-[2%] overflow-x-scroll overflow-y-hidden max-2xl:ml-[9%] max-ml:ml-[7%] max-lg:ml-[5%] max-sm:pt-[12%] " >
@@ -83,31 +83,31 @@ export default function Advantage() {
             <div className="advantage-container flex flex-nowrap h-[100%] overflow-hidden w-[3239px] gap-[20px] relative max-md:w-fit max-sm:w-fit">
                 <div className="relative adv-card bg-main-blue h-[100%] w-[524px] rounded-[15px] flex-col max-sm:w-[300px]">
                         <div className=" text-[31.25px] leading-[39px] text-white font-bold font-quicksand w-[70%] mt-[6.35%] text-left ml-[4%]">
-                        {advantage?.sous_titre}
+                        {advantage?.sous_titre ? advantage.sous_titre : "Installations ultramodernes"}
                         </div>
 
                         <div className="white-line h-[0.65%] w-[90.15%] bg-white m-auto mt-[2.35%] "></div>
 
                         <div className="paragraph-card text-p text-white text-left font-r-mono font-normal leading-[32px] w-[92%] mt-[3.75%] ml-[4%]">
-                            {advantage?.description}
+                            {advantage?.description ? advantage.description : "Lorem ipsum dolor sit amet consectetur. Pellentesque sit lorem ac nec nulla habitasse elit. Sit consequat cursus integer nam risus amet urna. "}
                         </div>
 
-                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[9.25%] ml-[3%] mix-blend-overlay">
+                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[50.25%] ml-[3%] mix-blend-overlay">
                             1
                         </div>
                 </div>
                 <div className="relative adv-card bg-main-blue h-[100%] w-[524px] rounded-[15px] max-sm:w-[300px]">
                 <div className=" text-[31.25px] leading-[39px] text-white font-bold font-quicksand w-[82%] mt-[6.35%] text-left ml-[4%]">
-                        {advantage?.sous_titre1}
+                        {advantage?.sous_titre1 ? advantage.sous_titre1 : "Programme d'Entraînement Personnalisé"}
                         </div>
 
                         <div className="white-line h-[0.65%] w-[90.15%] bg-white m-auto mt-[2.35%] "></div>
 
                         <div className="paragraph-card text-p text-white text-left font-r-mono font-normal leading-[32px] w-[92%] mt-[3.75%] ml-[4%]">
-                            {advantage?.description1}
+                            {advantage?.description1 ? advantage.description1 : "Lorem ipsum dolor sit amet consectetur. Pellentesque sit lorem ac nec nulla habitasse elit. Sit consequat cursus integer nam risus amet urna. "}
                         </div>
 
-                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[9.25%] ml-[3%] mix-blend-overlay">
+                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[50.25%] ml-[3%] mix-blend-overlay">
                             2
                         </div>
 
@@ -115,36 +115,36 @@ export default function Advantage() {
                 <div className="relative adv-card bg-main-blue h-[100%] w-[524px] rounded-[15px] max-sm:w-[300px]">
                 <div className=" text-[31.25px] leading-[39px] text-white font-bold font-quicksand w-[69%] mt-[6.35%] text-left ml-[4%]  ">
 
-                        {advantage?.sous_titre2}
+                        {advantage?.sous_titre2 ? advantage.sous_titre2 : "Communauté de Soutien"}
                        
                         </div>
 
                         <div className="white-line h-[0.65%] w-[90.15%] bg-white m-auto mt-[2.35%] "></div>
 
                         <div className="paragraph-card text-p text-white text-left font-r-mono font-normal leading-[32px] w-[92%] mt-[3.75%] ml-[4%]">
-                            {advantage?.description1}
+                            {advantage?.description2 ? advantage.description2 : "Lorem ipsum dolor sit amet consectetur. Pellentesque sit lorem ac nec nulla habitasse elit. Sit consequat cursus integer nam risus amet urna. "}
                         </div>
 
-                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[9.25%] ml-[3%] mix-blend-overlay">
+                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[50.25%] ml-[3%] mix-blend-overlay">
                             3
                         </div>
                 </div>
 
 
                 <div className="relative adv-card bg-main-blue h-[100%] w-[524px] rounded-[15px] max-sm:w-[300px]">
-                <div className=" text-[31.25px] leading-[39px] text-white font-bold font-quicksand w-[69%] mt-[6.35%] text-left ml-[4%] ">
+                <div className=" text-[31.25px] leading-[39px] text-white font-bold font-quicksand w-[63%] mt-[6.35%] text-left ml-[4%] ">
 
-                        {advantage?.sous_titre2}
+                        {advantage?.sous_titre3 ? advantage.sous_titre3 : "Installations de Pointe"}
                        
                         </div>
 
                         <div className="white-line h-[0.65%] w-[90.15%] bg-white m-auto mt-[2.35%] "></div>
 
                         <div className="paragraph-card text-p text-white text-left font-r-mono font-normal leading-[32px] w-[92%] mt-[3.75%] ml-[4%]">
-                            {advantage?.description1}
+                            {advantage?.description3 ? advantage.description3 : "Lorem ipsum dolor sit amet consectetur. Pellentesque sit lorem ac nec nulla habitasse elit. Sit consequat cursus integer nam risus amet urna. "}
                         </div>
 
-                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[9.25%] ml-[3%] mix-blend-overlay">
+                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[50.25%] ml-[3%] mix-blend-overlay">
                             4
                         </div>
                 </div>
@@ -152,17 +152,17 @@ export default function Advantage() {
                 <div className="relative adv-card bg-main-blue h-[100%] w-[524px] rounded-[15px] max-sm:w-[300px]">
                 <div className=" text-[31.25px] leading-[39px] text-white font-bold font-quicksand w-[69%] mt-[6.35%] text-left ml-[4%] ">
 
-                        {advantage?.sous_titre2}
+                        {advantage?.sous_titre4 ? advantage.sous_titre4 : "Lorem ipsum dolor sit amet consectetur."}
                        
                         </div>
 
                         <div className="white-line h-[0.65%] w-[90.15%] bg-white m-auto mt-[2.35%] "></div>
 
                         <div className="paragraph-card text-p text-white text-left font-r-mono font-normal leading-[32px] w-[92%] mt-[3.75%] ml-[4%]">
-                            {advantage?.description1}
+                            {advantage?.description4 ? advantage.description4 : "Lorem ipsum dolor sit amet consectetur. Pellentesque sit lorem ac nec nulla habitasse elit. Sit consequat cursus integer nam risus amet urna. "}
                         </div>
 
-                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[9.25%] ml-[3%] mix-blend-overlay">
+                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[50.25%] ml-[3%] mix-blend-overlay">
                             5
                         </div>
                 </div>
@@ -170,17 +170,17 @@ export default function Advantage() {
                 <div className="relative adv-card bg-main-blue h-[100%] w-[524px] rounded-[15px] max-sm:w-[300px]">
                 <div className=" text-[31.25px] leading-[39px] text-white font-bold font-quicksand w-[69%] mt-[6.35%] text-left ml-[4%] ">
 
-                        {advantage?.sous_titre2}
+                        {advantage?.sous_titre5 ? advantage.sous_titre5 : "Lorem ipsum dolor sit amet consectetur."}
                        
                         </div>
 
                         <div className="white-line h-[0.65%] w-[90.15%] bg-white m-auto mt-[2.35%] "></div>
 
                         <div className="paragraph-card text-p text-white text-left font-r-mono font-normal leading-[32px] w-[92%] mt-[3.75%] ml-[4%]">
-                            {advantage?.description1}
+                            {advantage?.description5 ? advantage.description5 : "Lorem ipsum dolor sit amet consectetur. Pellentesque sit lorem ac nec nulla habitasse elit. Sit consequat cursus integer nam risus amet urna. "}
                         </div>
 
-                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[9.25%] ml-[3%] mix-blend-overlay">
+                        <div className="text-[320px] font-r-mono font-bold  text-left text-white text-opacity-10 -mt-[50.25%] ml-[3%] mix-blend-overlay">
                             6
                         </div>
                 </div>
@@ -215,16 +215,16 @@ export default function Advantage() {
         <img className="relative m-auto h-[100%] max-2xl:hidden" src="../img/stats_vector.png" alt="" /> 
         <div className="h-[30vh] -mt-[16.25%] w-[80%] m-auto  flex flex-wrap place-content-evenly ">
             <div className="h-[80%] w-[437px] flex-col mt-auto mb-auto">
-            <div className="text-[120px] text-center font-r-mono font-bold text-main-black"> {stat?.clients_satisfaits}+</div>
-            <div className="text-h4 text-center -mt-[2%] leading-h4 font-r-mono font-bold">{stat?.additional_column1}</div>
+            <div className="text-[120px] text-center font-r-mono font-bold text-main-black"> {stat?.clients_satisfaits ? stat.clients_satisfaits : "750"}+</div>
+            <div className="text-h4 text-center -mt-[2%] leading-h4 font-r-mono font-bold">{stat?.additional_column1 ? stat.additional_column1 : "Client satisfaits"}</div>
             </div>
             <div className="h-[80%] w-[437px] flex-col  mt-auto mb-auto">
-            <div className="text-[120px] text-center font-r-mono font-bold text-main-black"> {stat?.avis_rares}+</div>
-            <div className="text-h4 text-center -mt-[2%]  leading-h4 font-r-mono font-bold">{stat?.additional_column2}</div>
+            <div className="text-[120px] text-center font-r-mono font-bold text-main-black"> {stat?.avis_rares ? stat.avis_rares : "26"}+</div>
+            <div className="text-h4 text-center -mt-[2%]  leading-h4 font-r-mono font-bold">{stat?.additional_column2 ? stat.additional_column2 : "Activités"}</div>
             </div>
             <div className="h-[80%] w-[437px] flex-col mt-auto mb-auto">
-            <div className="text-[120px] text-center font-r-mono font-bold text-main-black"> {stat?.sports_offerts}+</div>
-            <div className="text-h4 text-center -mt-[2%]  leading-h4 font-r-mono font-bold">{stat?.additional_column3}</div>
+            <div className="text-[120px] text-center font-r-mono font-bold text-main-black"> {stat?.sports_offerts ? stat.sports_offerts : "8"}+</div>
+            <div className="text-h4 text-center -mt-[2%]  leading-h4 font-r-mono font-bold">{stat?.additional_column3 ? stat.additional_column3 : "Enterprises clients"}</div>
             </div>
         </div>   
         </div>

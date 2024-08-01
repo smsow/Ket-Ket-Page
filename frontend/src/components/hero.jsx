@@ -54,14 +54,15 @@ export default function Hero() {
                         <div className="hero-text relative ml-[10.8%] h-[38%] w-[59%] bg-white max-lg:ml-[0%] max-lg:w-[65%] max-md:w-[100%] max-md:h-[30.5%]">
                             <div className="hero-title ml-[0.58%] mt-[1.25%] w-[100%] h-[100%] bg-hero-texture flex items-center">
                                 <div className="text-title relative font-arial font-bold leading-title left-7 text-main-blue max-lg:text-h1 max-lg:leading-h1 max-xs:text-h2 max-xs:leading-h2">
-                                {articleWithId1?.title}
+                                {articleWithId1?.title ? articleWithId1.title : "WELLNESS AT STATIC"}
+
                                     
                                 </div>
                             </div>
                         </div> 
                         <div className="hero-subtitle min-h-[18%] w-[51%]  ml-[12.8%] mt-[3.25%] max-2xl:ml-[12%] max-2xl:w-[60%] max-lg:ml-[2.5%] max-lg:w-[65%] max-md:w-[95%]">
                             <div className="text-h5 leading-h5 font-arial max-md:text-h6 max-md:leading-h6">
-                            {articleWithId1?.subtitle}
+                            {articleWithId1?.subtitle ? articleWithId1.subtitle : "Rejoignez-nous et transformez votre forme physique dès aujourd'hui. Des installations de pointe et des cours diversifiés vous attendent. Commencez static!"}
                             
                             </div>
                         </div>
@@ -85,25 +86,25 @@ export default function Hero() {
                         <div className="accolades h-[10%] mt-[5%] w-[87.5%]  ml-auto flex gap-[1%] max-ml:ml-[12.5%] max-2xl:flex-wrap max-2xl:place-content-start max-2xl:gap-[5%] max-lg:flex-wrap max-lg:ml-[2.5%] max-lg:h-auto max-lg:w-[90%] max-2xl:h-[20%] max-xl:w-[90%]">
 
                             <div className="award  w-[280px] h-[70px] flex place-content-start items-center gap-[9.55%] max-[1690px]:gap-[5%] max-2xl:gap[15%] max-lg:mt-[30px]">
-                                <img className="h-[59px] w-[58px]" src={imageAward1} alt="award-icon-1" />
+                                <img className="h-[59px] w-[58px]" src={imageAward1 ? imageAward1 : "../img/award1.png"}  alt="award-icon-1" />
                                 <div className="text-h6 leading-6 font-arial font-bold mb-2">
-                                {awards?.description}
+                                {awards?.description ? awards.description : "EXCEPTIONNEL COMMENTAIRES" }
                                 </div>
                             </div>
 
 
                             <div className="award  w-[280px] h-[70px] flex place-content-start items-center gap-[9.5%] max-[1690px]:gap-[5%] max-2xl:gap[15%] max-lg:mt-[30px]">
-                                <img className="h-[58px] w-[58px]" src={imageAward2} alt="award-icon-1" />
+                                <img className="h-[58px] w-[58px]" src={imageAward2 ? imageAward2 : "../img/award2.png"} alt="award-icon-1" />
                                 <div className="text-h6 leading-6 font-arial font-bold mb-2">
-                                {awards?.description1}
+                                {awards?.description1 ? awards.description1 : "ENTRAÎNEURS DE CLASSE MONDIALE" }
 
                                 </div>
                             </div>
 
                             <div className="award  w-[280px] h-[70px] flex place-content-center items-center gap-[9.5%] max-[1690px]:gap-[5%] max-2xl:gap[15%] max-lg:mt-[30px]">
-                                <img className="h-[64px] w-[86px]" src={imageAward3} alt="award-icon-1" />
+                                <img className="h-[64px] w-[86px]" src={imageAward3 ? imageAward3 : "../img/award3.png"} alt="award-icon-1" />
                                 <div className="text-h6 leading-6 font-arial font-bold mb-2">
-                                {awards?.description2}
+                                {awards?.description2 ? awards.description2 : "INSTALLATIONS EXTENSIVES" }
                                 </div>
                             </div>
     
@@ -113,7 +114,7 @@ export default function Hero() {
                     <div className="hero-image-container  relative w-[48%] h-[93%]  max-lg:w-[100%] max-lg:h-[60%] max-lg:flex max-lg:place-content-center max-md:h-[50%] ">
                     <div className="relative h-[71%] w-[71.8%] mt-[5.75%] ml-[15%] right-[1.9%] hero-image-shadow  bg-no-repeat bg-cover bg-center max-lg:h-[95%] max-lg:ml-[0%] max-lg:w-[95%] max-lg:mt-[2%]"
                     style={{
-                        backgroundImage: imageUrl ? `url(${imageUrl})` : 'none',
+                        backgroundImage: imageUrl ? `url(${imageUrl})` : 'url(../img/hero-image.png)',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center'
                     }} >   
