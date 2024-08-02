@@ -27,6 +27,9 @@ class UpdatePartenaireRequest extends FormRequest
             'description' => 'sometimes|string',
             'cart_description1' => 'sometimes|string',
             'cart_description2' => 'sometimes|string',
+            'cart_description3' => 'sometimes|string', // Champ ajouté
+            'cart_description4' => 'sometimes|string', // Champ ajouté
+            'cart_description5' => 'sometimes|string', // Champ ajouté
         ];
     }
 
@@ -50,6 +53,12 @@ class UpdatePartenaireRequest extends FormRequest
             'cart_description1.string' => 'La description de la carte 1 doit être une chaîne de caractères.',
             'cart_description2.sometimes' => 'La description de la carte 2 est requise dans certaines conditions.',
             'cart_description2.string' => 'La description de la carte 2 doit être une chaîne de caractères.',
+            'cart_description3.sometimes' => 'La description de la carte 3 est requise dans certaines conditions.', // Message ajouté
+            'cart_description3.string' => 'La description de la carte 3 doit être une chaîne de caractères.', // Message ajouté
+            'cart_description4.sometimes' => 'La description de la carte 4 est requise dans certaines conditions.', // Message ajouté
+            'cart_description4.string' => 'La description de la carte 4 doit être une chaîne de caractères.', // Message ajouté
+            'cart_description5.sometimes' => 'La description de la carte 5 est requise dans certaines conditions.', // Message ajouté
+            'cart_description5.string' => 'La description de la carte 5 doit être une chaîne de caractères.', // Message ajouté
         ];
     }
 }

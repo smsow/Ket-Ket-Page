@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePartenaireRequest;
 use App\Http\Requests\UpdatePartenaireRequest;
 use App\Models\Partenaire;
-
 use Illuminate\Http\Request;
 
 class ApiPartenaireController extends Controller
@@ -31,7 +30,7 @@ class ApiPartenaireController extends Controller
      * @param \App\Http\Requests\StorePartenaireRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(StorePartenaireRequest  $request)
+    public function store(StorePartenaireRequest $request)
     {
         $partenaire = Partenaire::create($request->validated());
         return response()->json([

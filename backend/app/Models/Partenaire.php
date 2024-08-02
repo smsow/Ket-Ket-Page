@@ -16,5 +16,8 @@ class Partenaire extends Model
         'cart_titre',
         'cart_description1',
         'cart_description2',
+        'cart_description3', // Champ ajouté
+        'cart_description4', // Champ ajouté
+        'cart_description5', // Champ ajouté
     ];
 }
