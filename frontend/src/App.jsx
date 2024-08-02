@@ -23,6 +23,7 @@ import NavBar from "./components/navbar";
 import Hero from "./components/hero";
 import About from "./components/about";
 import Advantage from './components/advantage';
+import Service from './components/service';
 
 export default function App() {
   return (
@@ -39,6 +40,9 @@ export default function App() {
         </div>
         <div className="">
         <Advantage />
+        </div>
+        <div className="">
+          <Service/>
         </div>
       </body>
     </>

@@ -51,6 +51,7 @@ module.exports = {
         'dots-about': "url(../public/img/dots_about.png)",
         'macbook-about': "url(../public/img/macbook.png)",
         'dots-advantage': "url(../public/img/dot-adv.png)",
+        'dots-service' : "url(../public/img/dots-service.png)",
       },
    
     },
