@@ -14,7 +14,8 @@ class PartenaireResource extends Resource
 {
     protected static ?string $model = Partenaire::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-group'; 
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -33,6 +34,13 @@ class PartenaireResource extends Resource
                     ->required(),
                 Forms\Components\Textarea::make('cart_description2')
                     ->required(),
+                // Ajout des nouveaux champs
+                Forms\Components\Textarea::make('cart_description3')
+                    ->required(),
+                Forms\Components\Textarea::make('cart_description4')
+                    ->required(),
+                Forms\Components\Textarea::make('cart_description5')
+                    ->required(),
             ]);
     }
 
@@ -49,6 +57,13 @@ class PartenaireResource extends Resource
                 Tables\Columns\TextColumn::make('cart_description1')
                     ->limit(50),
                 Tables\Columns\TextColumn::make('cart_description2')
+                    ->limit(50),
+                // Ajout des nouveaux champs
+                Tables\Columns\TextColumn::make('cart_description3')
+                    ->limit(50),
+                Tables\Columns\TextColumn::make('cart_description4')
+                    ->limit(50),
+                Tables\Columns\TextColumn::make('cart_description5')
                     ->limit(50),
             ])
             ->filters([
