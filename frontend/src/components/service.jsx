@@ -76,7 +76,7 @@ export default function Service() {
     return (
         
         <>
-        <div className="service-container -mt-[10%] max-lg:mt-[60%] max-[1094px]:mt-[20%] max-sm:mt-[70%] max-[520px]:mt-[100%] max-[420px]:mt-[500px]">
+        <div className="service-container -mt-[10%] max-lg:mt-[60%] max-[1094px]:mt-[20%] max-sm:mt-[70%] max-[520px]:mt-[100%] max-[420px]:mt-[475px]">
         <div className="service-title relative h-[50.8%] pt-[7.8%] w-[100%] bottom-[20%]  flex place-content-evenly max-lg:mt-[30%] max-sm:mt-[40%] max-[400px]:mt-[50%] max-[330px]:mt-[60%]">
             <div className="squibbly-container w-[24.65%] h-[100%] max-lg:hidden">
                 <div className="squib ml-[46%] mt-[2.25%] max-ml:mt-[40%] -rotate-[10deg]">
@@ -107,7 +107,7 @@ export default function Service() {
       <div className="service-blocks-container flex h-[100%] max-ml:flex-wrap  max-ml:justify-center gap-[3%] ml-[1.5%] w-[100%] max-lg:gap-[3%]  max-lg:space-y-[10%] max-lg:h-[70%]">
       <img src="../img/red-circles.png" alt="" className="absolute z-1 -ml-[135px] mt-[22px] max-ml:-ml-[90%] max-sm:hidden" />
       {services.map((service, index) => (
-        <div key={index} className="bg-main-blue w-[300px] flex flex-col items-center z-10 justify-center max-lg:m-auto">
+        <div key={index} className="bg-main-blue box-service-shadow w-[300px] flex flex-col items-center z-10 justify-center max-lg:m-auto">
           <img
             src={useStaticImage ? fallbackImages[index % fallbackImages.length] : `http://localhost:8000/storage/${service.image}`} // Conditional src with multiple static images
             alt={`Image for ${service.subtitle}`}
