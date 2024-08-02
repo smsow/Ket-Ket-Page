@@ -6,7 +6,8 @@
             use App\Http\Controllers\Api\ActivityController;
             use App\Http\Controllers\Api\AdvantageController;
         use App\Http\Controllers\Api\ApiPartenaireController;
-    use App\Http\Controllers\Api\MediaItemController;
+use App\Http\Controllers\Api\DevenerPartenaireController;
+use App\Http\Controllers\Api\MediaItemController;
     use App\Http\Controllers\Api\NumberController;
     use App\Http\Controllers\Api\ServiceController as ApiServiceController;
     use App\Http\Controllers\Api\StaticDecouverteController;
@@ -186,3 +187,5 @@
     // Supprime un media item spécifique
     Route::delete('media-items/{mediaItem}', [MediaItemController::class, 'destroy']);
 
+//route devener partenaire
+Route::apiResource('devener-partenaires', DevenerPartenaireController::class);
