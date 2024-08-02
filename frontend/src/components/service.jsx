@@ -76,7 +76,7 @@ export default function Service() {
     return (
         
         <>
-        <div className="service-container -mt-[10%] max-lg:mt-[60%] max-[1094px]:mt-[20%] max-sm:mt-[70%] max-[520px]:mt-[100%] max-[420px]:mt-[475px]">
+        <div className="service-container -mt-[10%] max-lg:mt-[60%] max-[1094px]:mt-[20%] max-sm:mt-[70%] max-[520px]:mt-[100%] max-[420px]:mt-[440px]">
         <div className="service-title relative h-[50.8%] pt-[7.8%] w-[100%] bottom-[20%]  flex place-content-evenly max-lg:mt-[30%] max-sm:mt-[40%] max-[400px]:mt-[50%] max-[330px]:mt-[60%]">
             <div className="squibbly-container w-[24.65%] h-[100%] max-lg:hidden">
                 <div className="squib ml-[46%] mt-[2.25%] max-ml:mt-[40%] -rotate-[10deg]">
