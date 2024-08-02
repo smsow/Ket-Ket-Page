@@ -78,7 +78,7 @@ export default function Partenaire() {
         <div className="min-h-[1031px] mb-[10%] mt-[6.75%] w-[100%]">
             <div className="partner-subtitle h-fit w-[70%] ml-[9%] text-main-blue">
                 <h3 className='text-h3 font-quicksand font-bold'>
-                {partenaire?.subtitle ? partenaire.subtitle : "Nous Sommes Ket Ket"}
+                {partenaire?.subtitle ? partenaire.subtitle : "Pourquoi être partenaire avec Ket Ket ?"}
 
                 </h3>
             </div>
@@ -86,30 +86,30 @@ export default function Partenaire() {
                 <div className="bg-main-blue h-[60vh] w-[31.2%] rounded-[46px] max-ml:w-[40%] max-xl:w-[50%] max-lg:w-[60%] max-md:w-[80%] max-md:mx-auto max-sm:w-[100%]">
                     <div className="card-content h-fit">
                         <h4 className='text-h4 leading-h4 text-white font-arial mt-[12.2%] w-[80%] m-auto font-bold max-[450px]:text-h5 max-[450px]:leading-h5'>
-                        {partenaire?.cart_titre ? partenaire.cart_titre : "Nous Sommes Ket Ket"}
+                        {partenaire?.cart_titre ? partenaire.cart_titre : "Amélioration du bien-être en entreprise"}
                         </h4>
                         <p className='text-white font-arial text-h5 leading-[38px] font-light mt-[4.6%] m-auto w-[81%] max-[450px]:text-[20px] max-[450px]:leading-[32px]'>
-                        {partenaire?.cart_description1 ? partenaire.cart_description1: "Nous Sommes Ket Ket"}
+                        {partenaire?.cart_description1 ? partenaire.cart_description1: "En devenant partenaire de Ket Ket, vous contribuez à améliorer le bien-être de vos employés. Cette collaboration permet d'offrir des solutions innovantes pour favoriser la santé et le dynamisme de votre équipe, renforçant ainsi la productivité et la satisfaction au travail."}
                         </p>
                     </div>
                 </div>
                 <div className="bg-main-red h-[60vh] w-[31.2%] mt-[6%]  rounded-[46px] max-ml:w-[40%] max-xl:w-[50%] max-xl:mx-auto max-lg:w-[60%] max-md:w-[80%] max-md:mx-auto max-sm:w-[100%] ">
                     <div className="card-content h-fit">
                         <h4 className='text-h4 leading-h4 text-white font-arial mt-[12.2%] w-[80%] m-auto font-bold max-[450px]:text-h5 max-[450px]:leading-h5'>
-                        {partenaire?.cart_titre ? partenaire.cart_titre : "Nous Sommes Ket Ket"}
+                        {partenaire?.cart_titre ? partenaire.cart_titre : "Investissement dans la performance et la durabilitét"}
                         </h4>
                         <p className='text-white font-arial text-h5 leading-[38px] font-light mt-[4.6%] m-auto w-[81%] max-[450px]:text-[20px] max-[450px]:leading-[32px] '>
-                        {partenaire?.cart_description1 ? partenaire.cart_description1: "Nous Sommes Ket Ket"}
+                        {partenaire?.cart_description1 ? partenaire.cart_description1: "Collaborer avec Ket Ket est un investissement stratégique pour la performance durable de votre entreprise. En intégrant des programmes de sport et de bien-être, vous stimulez l'engagement des employés, réduisez les coûts liés à l'absentéisme et améliorez la satisfaction client, renforçant ainsi votre position sur le marché."}
                         </p>
                     </div>
                 </div>
                 <div className="bg-main-blue h-[60vh] w-[31.2%] mt-[10%]  rounded-[46px] max-ml:w-[40%] max-xl:w-[50%] max-xl:ml-auto max-lg:w-[60%] max-md:w-[80%] max-md:mx-auto max-sm:w-[100%]">
                     <div className="card-content h-fit">
                         <h4 className='text-h4 leading-h4 text-white font-arial mt-[12.2%] w-[80%] m-auto font-bold max-[450px]:text-h5 max-[450px]:leading-h5'>
-                        {partenaire?.cart_titre ? partenaire.cart_titre : "Nous Sommes Ket Ket"}
+                        {partenaire?.cart_titre ? partenaire.cart_titre : "Expansion dans le secteur sportif au Sénégal"}
                         </h4>
                         <p className='text-white font-arial text-h5 leading-[38px] font-light mt-[4.6%] m-auto w-[81%] max-[450px]:text-[20px] max-[450px]:leading-[32px] '>
-                        {partenaire?.cart_description1 ? partenaire.cart_description1: "Nous Sommes Ket Ket"}
+                        {partenaire?.cart_description1 ? partenaire.cart_description1: "En partenariat avec Ket Ket, vous pouvez étendre votre présence et renforcer votre impact dans le domaine du sport au Sénégal. Ensemble, nous facilitons l'accès à des infrastructures sportives de qualité et proposons des solutions d'adhésion attractives aux entreprises, promouvant un mode de vie sain et actif pour les salariés."}
                         </p>
                     </div>
                 </div>
