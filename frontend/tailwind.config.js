@@ -53,6 +53,7 @@ module.exports = {
         'macbook-about': "url(../public/img/macbook.png)",
         'dots-advantage': "url(../public/img/dot-adv.png)",
         'dots-service' : "url(../public/img/dots-service.png)",
+        'partner-background': "url(../public/img/partner.png)",
       },
    
     },
