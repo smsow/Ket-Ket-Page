@@ -9,7 +9,8 @@
 use App\Http\Controllers\Api\DevenerPartenaireController;
 use App\Http\Controllers\Api\MediaItemController;
     use App\Http\Controllers\Api\NumberController;
-    use App\Http\Controllers\Api\ServiceController as ApiServiceController;
+use App\Http\Controllers\Api\PrendreRendezVousController;
+use App\Http\Controllers\Api\ServiceController as ApiServiceController;
     use App\Http\Controllers\Api\StaticDecouverteController;
     use App\Http\Controllers\Api\StatisticController;
             use App\Http\Controllers\ServiceController;
@@ -187,5 +188,29 @@ use App\Http\Controllers\Api\MediaItemController;
     // Supprime un media item spécifique
     Route::delete('media-items/{mediaItem}', [MediaItemController::class, 'destroy']);
 
-//route devener partenaire
-Route::apiResource('devener-partenaires', DevenerPartenaireController::class);
+// Routes pour DevenerPartenaire
+// GET /devener-partenaires - Récupère la liste de tous les partenaires
+Route::get('devener-partenaires', [DevenerPartenaireController::class, 'index']);
+
+// POST /devener-partenaires - Crée un nouveau partenaire
+Route::post('devener-partenaires', [DevenerPartenaireController::class, 'store']);
+
+// GET /devener-partenaires/{id} - Récupère les détails d'un partenaire spécifique
+Route::get('devener-partenaires/{id}', [DevenerPartenaireController::class, 'show']);
+
+// PUT/PATCH /devener-partenaires/{id} - Met à jour un partenaire existant
+Route::put('devener-partenaires/{id}', [DevenerPartenaireController::class, 'update']);
+
+// DELETE /devener-partenaires/{id} - Supprime un partenaire spécifique
+Route::delete('devener-partenaires/{id}', [DevenerPartenaireController::class, 'destroy']);
+// Routes pour PrendreRendezVous
+// GET /prendre-rendez-vous - Récupère la liste de tous les rendez-vous
+Route::get('prendre-rendez-vous', [PrendreRendezVousController::class, 'index']);
+// POST /prendre-rendez-vous - Crée un nouveau rendez-vous
+Route::post('prendre-rendez-vous', [PrendreRendezVousController::class, 'store']);
+// GET /prendre-rendez-vous/{id} - Récupère les détails d'un rendez-vous spécifique
+Route::get('prendre-rendez-vous/{id}', [PrendreRendezVousController::class, 'show']);
+// PUT/PATCH /prendre-rendez-vous/{id} - Met à jour un rendez-vous existant
+Route::put('prendre-rendez-vous/{id}', [PrendreRendezVousController::class, 'update']);
+// DELETE /prendre-rendez-vous/{id} - Supprime un rendez-vous spécifique
+Route::delete('prendre-rendez-vous/{id}', [PrendreRendezVousController::class, 'destroy']);
