@@ -102,8 +102,8 @@ export default function Service() {
         
         
         <div className="service-main-container h-[475px] m-auto w-[70%] mt-[2.25%] max-[1750px]:w-[80%] max-2xl:w-[90%] relative mb-[10%] max-lg:w-[100%]">
-        <img src="../img/red-circles.png" alt="" className="absolute z-1 ml-[10%] mt-[22.5%] hidden max-sm:block max-sm:mt-[600px]" />
-        <img src="../img/red-circles.png" alt="" className="absolute z-1 ml-[5%] mt-[22.5%] hidden max-sm:block max-sm:mt-[1500px]" />
+        <img src="../img/red-circles.png" alt="" className="absolute z-1 ml-[10%] mt-[22.5%] hidden max-[619px]:block max-sm:mt-[600px]" />
+        <img src="../img/red-circles.png" alt="" className="absolute z-1 ml-[5%] mt-[22.5%] hidden max-[619px]:block max-sm:mt-[1500px]" />
       <div className="service-blocks-container flex h-[100%] max-ml:flex-wrap  max-ml:justify-center gap-[3%] ml-[1.5%] w-[100%] max-lg:gap-[3%]  max-lg:space-y-[10%] max-lg:h-[70%]">
       <img src="../img/red-circles.png" alt="" className="absolute z-1 -ml-[135px] mt-[22px] max-ml:-ml-[90%] max-sm:hidden" />
       {services.map((service, index) => (
@@ -125,7 +125,7 @@ export default function Service() {
        <img src="../img/red-circles.png" alt="" className="absolute z-1 ml-[88%] mt-[22.5%] max-sm:-mt-40" />
 
       </div>
-      <img src="../img/red-circles.png" alt="" className="absolute z-1 ml-[50%] mt-[22.5%] hidden max-sm:block max-sm:mt-[800px]" />
+      <img src="../img/red-circles.png" alt="" className="absolute z-1 ml-[50%] mt-[22.5%] hidden max-[619px]:block max-sm:mt-[800px]" />
     </div>
         </div>
             </>

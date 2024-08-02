@@ -24,6 +24,7 @@ import Hero from "./components/hero";
 import About from "./components/about";
 import Advantage from './components/advantage';
 import Service from './components/service';
+import Partenaire from './components/partenaire';
 
 export default function App() {
   return (
@@ -43,6 +44,9 @@ export default function App() {
         </div>
         <div className="">
           <Service/>
+        </div>
+        <div className="">
+          <Partenaire />
         </div>
       </body>
     </>

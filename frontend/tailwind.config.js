@@ -30,6 +30,7 @@ module.exports = {
         'inter': ['Inter', 'sans-serif'],
         'quicksand': ['Quicksand', 'sans-serif'],
         'r-mono': ['Roboto Mono', 'monospace'],
+        'roboto': ['Roboto', 'sans-serif']
       },
       backgroundColor: {
         'dark-gray': '#333333',
