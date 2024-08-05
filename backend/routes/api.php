@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\DevenerPartenaireController;
 use App\Http\Controllers\Api\MediaItemController;
     use App\Http\Controllers\Api\NumberController;
 use App\Http\Controllers\Api\OperationController;
+use App\Http\Controllers\Api\PartnerForm2Controller;
 use App\Http\Controllers\Api\PrendreRendezVousController;
 use App\Http\Controllers\Api\ServiceController as ApiServiceController;
     use App\Http\Controllers\Api\StaticDecouverteController;
@@ -232,3 +233,12 @@ Route::put('operations/{id}', [OperationController::class, 'update']);
 // DELETE /operations/{id} - Supprime une opération spécifique
 Route::delete('operations/{id}', [OperationController::class, 'destroy']);
 
+
+//route PaternerForm2
+
+// Routes pour les partenaires Form2
+Route::get('partners-form2', [PartnerForm2Controller::class, 'index']);
+Route::post('partners-form2', [PartnerForm2Controller::class, 'store']);
+Route::get('partners-form2/{partner_form2}', [PartnerForm2Controller::class, 'show']);
+Route::put('partners-form2/{partner_form2}', [PartnerForm2Controller::class, 'update']);
+Route::delete('partners-form2/{partner_form2}', [PartnerForm2Controller::class, 'destroy']);
