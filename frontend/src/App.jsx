@@ -25,6 +25,7 @@ import About from "./components/about";
 import Advantage from './components/advantage';
 import Service from './components/service';
 import Partenaire from './components/partenaire';
+import Logos from './components/partenaire_logos';
 
 export default function App() {
   return (
@@ -47,6 +48,9 @@ export default function App() {
         </div>
         <div className="">
           <Partenaire />
+        </div>
+        <div className="">
+          <Logos />
         </div>
       </body>
     </>
