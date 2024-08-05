@@ -9,6 +9,7 @@
 use App\Http\Controllers\Api\DevenerPartenaireController;
 use App\Http\Controllers\Api\MediaItemController;
     use App\Http\Controllers\Api\NumberController;
+use App\Http\Controllers\Api\OperationController;
 use App\Http\Controllers\Api\PrendreRendezVousController;
 use App\Http\Controllers\Api\ServiceController as ApiServiceController;
     use App\Http\Controllers\Api\StaticDecouverteController;
@@ -214,3 +215,20 @@ Route::get('prendre-rendez-vous/{id}', [PrendreRendezVousController::class, 'sho
 Route::put('prendre-rendez-vous/{id}', [PrendreRendezVousController::class, 'update']);
 // DELETE /prendre-rendez-vous/{id} - Supprime un rendez-vous spécifique
 Route::delete('prendre-rendez-vous/{id}', [PrendreRendezVousController::class, 'destroy']);
+
+// Routes pour Operation
+// GET /operations - Récupère la liste de toutes les opérations
+Route::get('operations', [OperationController::class, 'index']);
+
+// POST /operations - Crée une nouvelle opération
+Route::post('operations', [OperationController::class, 'store']);
+
+// GET /operations/{id} - Récupère les détails d'une opération spécifique
+Route::get('operations/{id}', [OperationController::class, 'show']);
+
+// PUT/PATCH /operations/{id} - Met à jour une opération existante
+Route::put('operations/{id}', [OperationController::class, 'update']);
+
+// DELETE /operations/{id} - Supprime une opération spécifique
+Route::delete('operations/{id}', [OperationController::class, 'destroy']);
+
