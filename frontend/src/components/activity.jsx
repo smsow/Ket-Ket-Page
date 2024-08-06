@@ -61,11 +61,11 @@ const rows = chunkArray(activities, 6);
     return(
         <>
         <div className="Activity_container mb-[4%]">
-            <div className="activity_heading text-h3 text-main-blue text-center font-bold font-arial">
+            <div className="activity_heading text-h3 text-main-blue text-center font-bold font-arial max-sm:text-h5 max-sm:leading-h5 max-sm:mb-[10%]">
             Nos Activités: conçus pour chaque objectif
          </div>
-            <div className="dots_n_activities w-[100%] min-h-[865px] bg-dots-active bg-cover bg-center mt-[1.6%] flex flex-col max-lg:min-h-[700px]">
-            <div className="relative w-[100vw] h-[293px] mt-[3.7%] overflow-x-scroll overflow-y-hidden ">
+            <div className="dots_n_activities w-[100%] min-h-[865px] bg-dots-active bg-cover bg-center mt-[1.6%] flex flex-col max-lg:min-h-[700px] max-sm:h-[400px]">
+            <div className="relative w-[100vw] h-[293px] mt-[3.7%] overflow-x-scroll overflow-y-hidden max-sm:mb-[10%] ">
   <div className="activity_row1 flex ml-[0.8%] h-[100%] w-[2195px] overflow-hidden rounded-[15px] z-0 gap-[30px] ">
   {rows[0] && rows[0].map((activity, index) => (
               <ActivityBox
@@ -77,7 +77,7 @@ const rows = chunkArray(activities, 6);
           </div>
         </div>
 
-        <div className="relative w-[100vw] h-[293px] mt-[3.25%] overflow-x-scroll overflow-y-hidden ">
+        <div className="relative w-[100vw] h-[293px] mt-[3.25%] overflow-x-scroll overflow-y-hidden  max-sm:mb-[10%] ">
           <div className="activity_row1 flex ml-[0.8%] h-[100%] w-[2195px] overflow-hidden rounded-[15px] z-0 gap-[30px] ">
             {rows[1] && rows[1].map((activity, index) => (
               <ActivityBox
@@ -95,7 +95,7 @@ const rows = chunkArray(activities, 6);
               <div className="bg-[#D9D9D9] w-[22.5%] h-[60%] rounded-[50px]"></div>
             </div>
 
-            <div className=" w-[320px] h-[60px] m-auto mt-[1%]">
+            <div className=" w-[320px] h-[60px] m-auto mt-[1%] mb-[90%]">
             <button className='w-[100%] h-[100%] bg-main-red rounded-[15px] hover:text-main-red hover:bg-white hover:border-2 hover:border-[#C8102E] text-h6 font-bold font-r-mono text-white text-center transition-all duration-500 ease-in-out'>
             Voir Tous les Activités
               </button>

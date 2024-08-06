@@ -49,8 +49,8 @@ const Logos = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-[10%] -mt-[2%] mb-[5%]">
-      <h4 className="text-[38.08px] text-center font-arial font-bold text-main-blue w-[100%] h-[30px] mb-[2.5%]">
+    <div className="flex flex-col gap-[10%] -mt-[2%] mb-[5%] max-sm:mb-[15%]">
+      <h4 className="text-[38.08px] text-center font-arial font-bold text-main-blue w-[100%] h-[30px] mb-[2.5%] max-sm:text-h5 max-sm:leading-h5 max-sm:mb-[5%]">
         {logos?.title ? logos.title : 'Ils nous font confiance'}
       </h4>
       <div className="pause relative w-[100vw] h-[100px] overflow-x-scroll">
