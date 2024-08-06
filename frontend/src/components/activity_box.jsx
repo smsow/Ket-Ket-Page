@@ -4,7 +4,7 @@ import React from 'react';
 export default function ActivityBox({ backgroundImage, text }) {
   return (
     <div
-      className="z-0 rounded-[15px] h-[100%] w-[340px] flex items-center cursor-pointer"
+      className="z-0 rounded-[15px] h-[100%] w-[340px] flex items-center cursor-pointer max-sm:h-[90%] max-sm:w-[320px]"
       style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="relative flex items-center justify-center w-full h-[50px]">

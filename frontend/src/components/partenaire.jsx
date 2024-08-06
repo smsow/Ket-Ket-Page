@@ -41,7 +41,7 @@ export default function Partenaire() {
             </div>
             <div className="relative w-[48vw] h-[38vh] mx-auto  bg-center bg-no-repeat grid place-items-center max-lg:w-[90%]">
                 <div className="text-center w-[90%] font-arial font-bold text-h1 leading-h1 text-main-black max-ml:text-h2 max-ml:leading-h2 max-sm:text-h3 max-sm:leading-h3">
-                {partenaire?.title ? partenaire.title : "Nous Sommes Ket Ket"}
+                {partenaire?.title ? partenaire.title : "Faites un partenariat avec Ket Ket"}
 
                 </div>
             </div>
@@ -62,13 +62,13 @@ export default function Partenaire() {
 
         <div className="mb-[5%] max-sm:mb-[40%]">
         <div className=" min-h-[70px] w-[589px] mt-[3.5%] ml-[10%] flex max-ml:mt-[10%] max-sm:mt-[20%] max-sm:m-auto max-sm:w-[500px]">
-            <div className="blue-deco w-[16%] h-[10%]">
+            <div className="blue-deco w-[16%] h-[10%] max-sm:hidden">
                 <img src="../img/small-blue-line.png" alt="" />
             </div>
-            <button className="button_partner z-10 w-[65%] h-[70px] bg-main-blue rounded-[10px] flex justify-center items-center font-quicksand text-[22px] font-semibold text-white">
+            <button className="button_partner z-10 w-[65%] h-[70px] bg-main-blue rounded-[10px] flex justify-center items-center font-quicksand text-[22px] font-semibold text-white max-sm:ml-[4%] max-sm:w-[60%]">
             Devenons partenaire
             </button>
-            <div className="blue-deco w-[17%]">
+            <div className="blue-deco w-[17%] max-sm:hidden">
             <img className='ml-auto mt-[10%] -rotate-[61deg]' src="../img/small-blue-line.png" alt="" />
             </div>
         </div>
