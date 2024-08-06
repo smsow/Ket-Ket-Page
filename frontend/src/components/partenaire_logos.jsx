@@ -1,115 +1,93 @@
 import React, { useEffect, useState } from 'react';
 
 const Logos = () => {
-
-    const [logos, setLogos] = useState([]);
-const [useStaticImage, setUseStaticImage] = useState(false); // State to decide which image to use
+  const [logos, setLogos] = useState([]);
+  const [useStaticImage, setUseStaticImage] = useState(false);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/operations', {
-      method: 'GET',
-      headers: {
-        'Cache-Control': 'no-cache'
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/operations', {
+          method: 'GET',
+          headers: {
+            'Cache-Control': 'no-cache'
+          }
+        });
+        const data = await response.json();
+
+        let fetchedLogos = [];
         if (data.data && Array.isArray(data.data)) {
-          const latestServices = data.data.slice(-10);
-          setLogos(latestServices);
-          setUseStaticImage(false); // Use server images if available
+          fetchedLogos = data.data;
+          setUseStaticImage(false); // Use dynamic data
         } else {
           console.warn('No valid data found in response');
-          setLogos(getFallbackData());
-          setUseStaticImage(true); // Use static images if server data is not available
         }
-      })
-      .catch(error => {
+
+        // Set logos to be fetched data or static data as needed
+        setLogos(fetchedLogos.length ? fetchedLogos : getFallbackData());
+      } catch (error) {
         console.error('Error fetching data:', error);
+        // Use static images if there's an error
         setLogos(getFallbackData());
-        setUseStaticImage(true); // Use static images if there's an error
-      });
+        setUseStaticImage(true); // Use static images
+      }
+    };
+
+    fetchData();
   }, []);
 
-  const fallbackImages = [
-    '/img/service1.png',
-    '/img/puzzle.png',
-    '/img/running-icon.png',
-    '/img/equality.png'
-  ];
-
-
-  const staticImages = [
-    'img/parter/wave.png',
-    'img/parter/prem.png',
-    'img/parter/senelec.png',
-    'img/parter/s_chambre.png',
-    'img/parter/elton.png',
-    'img/parter/wave.png',
-    'img/parter/senelec.png',
-    'img/parter/s_chambre.png',
-    'img/parter/elton.png',
-    'img/parter/wave.png',
-    'img/parter/senelec.png',
-    // Add more images as needed
-  ];
-
-  const images = [
-    'img/parter/wave.png',
-    'img/parter/prem.png',
-    'img/parter/senelec.png',
-    'img/parter/s_chambre.png',
-    'img/parter/elton.png',
-    'img/parter/wave.png',
-    'img/parter/senelec.png',
-    'img/parter/s_chambre.png',
-    'img/parter/elton.png',
-    'img/parter/wave.png',
-    'img/parter/senelec.png',
-    // Add more images as needed
-  ];
-
-const getFallbackData = () => [
-    { 
-       
-      // image:  <img src="../img/service1.png" alt="Service 1" />,
-      title: 'Accès au sport pour tous:', 
-    },
-
+  const getFallbackData = () => [
+    '/img/parter/senelec.png',
+    '/img/parter/baobab.png',
+    '/img/parter/elton.png',
+    '/img/parter/wave.png',
+    '/img/parter/prem.png',
+    '/img/parter/senelec.png',
+    '/img/parter/baobab.png',
+    '/img/parter/elton.png',
+    '/img/parter/wave.png',
   ];
 
   return (
-    <div className="flex flex-col gap-[10%] -mt-[2%]">
+    <div className="flex flex-col gap-[10%] -mt-[2%] mb-[5%]">
       <h4 className="text-[38.08px] text-center font-arial font-bold text-main-blue w-[100%] h-[30px] mb-[2.5%]">
-        {logos?.title ? logos.title : "Ils nous font confiance"}
+        {logos?.title ? logos.title : 'Ils nous font confiance'}
       </h4>
-      <div className=" logos inline-flex whitespace-nowrap gap-[30px] mb-[5%]">
-      <div className=" flex gap-[30px] items-center">
-      {(useStaticImage ? staticImages : logos).map((item, index) => {
-            const imageUrl = useStaticImage ? `/${item}` : `http://localhost:8000/storage/${item.image}`;
-            return (
-              <img
-                key={index}
-                src={imageUrl}
-                alt={`Logo ${index}`}
-                className="h-[100px] w-[190px] object-cover"
-              />
-            );
-          })}
-      </div>
-      <div className=" flex gap-[30px] items-center">
-        {images.map((image, ind) => (
-          <div
-            key={ind}
-            className=" h-[100px] w-[190px]"
-            style={{
-              backgroundImage: `url(/${image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-        ))}
-      </div>
+      <div className="pause relative w-[100vw] h-[100px] overflow-x-scroll">
+        <div className=" logos flex flex-nowrap gap-[30px] h-full">
+        {logos.map((logo, index) => (
+  <div
+    key={index}
+    className="  w-[190px] h-[100px] bg-cover bg-center"
+    style={{
+      backgroundImage: `url(${logo.image ? `http://localhost:8000/storage/${logo.image}` : logo})`,
+      backgroundSize: 'cover', // Ensures the image covers the entire div
+      backgroundPosition: 'center', // Centers the image within the div
+      backgroundRepeat: 'no-repeat', // Prevents the image from repeating
+
+    }}
+
+  />
+
+))}
+
+
+    
+        </div>
+        <div className="absolute top-0 left-0 h-full w-[100%] flex">
+          <div className=" logoing flex flex-nowrap gap-[30px] h-full animate-marquee">
+          {logos.map((logo, index) => (
+  <div
+    key={index}
+    className="w-[190px] h-[100px] bg-cover bg-center"
+    style={{
+      backgroundImage: `url(${logo.image ? `http://localhost:8000/storage/${logo.image}` : logo})`,
+    }}
+  />
+))}
+
+          </div>
+        </div>
       </div>
     </div>
   );

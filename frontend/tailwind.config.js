@@ -41,6 +41,7 @@ module.exports = {
 
       textColor: {
         'main-blue': "#1D428A",
+        'main-red': "#C8102E",
         'main-black': "#333333",
         'custom-white': 'rgba(255, 255, 255, 0.05)',
       },
@@ -54,6 +55,7 @@ module.exports = {
         'dots-advantage': "url(../public/img/dot-adv.png)",
         'dots-service' : "url(../public/img/dots-service.png)",
         'partner-background': "url(../public/img/partner.png)",
+        'dots-active': "url(../public/img/dot-active.png)",
       },
    
     },
