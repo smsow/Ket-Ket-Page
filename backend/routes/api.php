@@ -12,7 +12,8 @@
     use App\Http\Controllers\Api\OperationController;
     use App\Http\Controllers\Api\PartnerForm1Controller;
     use App\Http\Controllers\Api\PartnerForm2Controller;
-    use App\Http\Controllers\Api\PrendreRendezVousController;
+use App\Http\Controllers\Api\PartnerForm3Controller;
+use App\Http\Controllers\Api\PrendreRendezVousController;
     use App\Http\Controllers\Api\ServiceController as ApiServiceController;
         use App\Http\Controllers\Api\StaticDecouverteController;
         use App\Http\Controllers\Api\StatisticController;
@@ -261,3 +262,19 @@
                 Route::put('partners-form2/{partner_form2}', [PartnerForm2Controller::class, 'update']);
                 Route::delete('partners-form2/{partner_form2}', [PartnerForm2Controller::class, 'destroy']);
 
+//route form3
+
+// Liste tous les enregistrements de PartnerForm3
+Route::get('partners-form3', [PartnerForm3Controller::class, 'index']);
+
+// Crée un nouvel enregistrement PartnerForm3
+Route::post('partners-form3', [PartnerForm3Controller::class, 'store']);
+
+// Récupère un enregistrement spécifique de PartnerForm3 par son ID
+Route::get('partners-form3/{id}', [PartnerForm3Controller::class, 'show']);
+
+// Met à jour un enregistrement existant de PartnerForm3
+Route::put('partners-form3/{id}', [PartnerForm3Controller::class, 'update']);
+
+// Supprime un enregistrement spécifique de PartnerForm3 par son ID
+Route::delete('partners-form3/{id}', [PartnerForm3Controller::class, 'destroy']);
