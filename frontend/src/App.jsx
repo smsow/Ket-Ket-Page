@@ -27,6 +27,7 @@ import Service from './components/service';
 import Partenaire from './components/partenaire';
 import Logos from './components/partenaire_logos';
 import Activities from './components/activity';
+import Search_Section from './components/search_section';
 
 export default function App() {
   return (
@@ -55,6 +56,9 @@ export default function App() {
         </div>
         <div className="">
           <Activities />
+        </div>
+        <div className="">
+          <Search_Section />
         </div>
       </body>
     </>

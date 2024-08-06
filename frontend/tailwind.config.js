@@ -56,6 +56,8 @@ module.exports = {
         'dots-service' : "url(../public/img/dots-service.png)",
         'partner-background': "url(../public/img/partner.png)",
         'dots-active': "url(../public/img/dot-active.png)",
+        'back-search': "url(../public/img/background-search.png)",
+        'dot-search': "url(../public/img/dot-search.png)",
       },
    
     },
