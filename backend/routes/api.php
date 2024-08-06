@@ -13,6 +13,7 @@
     use App\Http\Controllers\Api\PartnerForm1Controller;
     use App\Http\Controllers\Api\PartnerForm2Controller;
 use App\Http\Controllers\Api\PartnerForm3Controller;
+use App\Http\Controllers\Api\PartnerForm4Controller;
 use App\Http\Controllers\Api\PrendreRendezVousController;
     use App\Http\Controllers\Api\ServiceController as ApiServiceController;
         use App\Http\Controllers\Api\StaticDecouverteController;
@@ -278,3 +279,24 @@ Route::put('partners-form3/{id}', [PartnerForm3Controller::class, 'update']);
 
 // Supprime un enregistrement spécifique de PartnerForm3 par son ID
 Route::delete('partners-form3/{id}', [PartnerForm3Controller::class, 'destroy']);
+
+//route PartnerForm4
+Route::get('partners-form4', [PartnerForm4Controller::class, 'index']);
+// - Méthode: GET
+// - Description: Renvoie la liste de tous les enregistrements de PartnerForm4.
+
+Route::post('partners-form4', [PartnerForm4Controller::class, 'store']);
+// - Méthode: POST
+// - Description: Crée un nouvel enregistrement de PartnerForm4.
+
+Route::get('partners-form4/{id}', [PartnerForm4Controller::class, 'show']);
+// - Méthode: GET
+// - Description: Renvoie les détails d'un enregistrement spécifique de PartnerForm4.
+
+Route::put('partners-form4/{id}', [PartnerForm4Controller::class, 'update']);
+// - Méthode: PUT
+// - Description: Met à jour un enregistrement spécifique de PartnerForm4.
+
+Route::delete('partners-form4/{id}', [PartnerForm4Controller::class, 'destroy']);
+// - Méthode: DELETE
+// - Description: Supprime un enregistrement spécifique de PartnerForm4.
