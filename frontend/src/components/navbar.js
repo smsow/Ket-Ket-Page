@@ -1,6 +1,6 @@
 export default function NavBar() {
     return (
-        <div className="Navbar  flex items-center max-[1200px]:w-[100%]">
+        <div className="Navbar  flex items-center max-[1200px]:w-[100%] ">
             <div className="logo flex items-center">
             <img src="../img/img1.png" alt="anyting" /> 
             <h2 className="font-bold pl-5 text-h2">Ket Ket</h2>

@@ -19,16 +19,16 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['http://localhost:3000'], // Liste des origines autorisées
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['*'],
+    'allowed_headers' => ['*'], // Liste des en-têtes autorisés
 
     'exposed_headers' => [],
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    'supports_credentials' => false, // Définir sur `true` si vous utilisez des cookies ou des informations d'identification
 
 ];

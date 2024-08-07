@@ -27,7 +27,7 @@ import Service from './components/service';
 import Partenaire from './components/partenaire';
 import Logos from './components/partenaire_logos';
 import Activities from './components/activity';
-
+import RendezVousForm from './components/RendezVousForm';
 export default function App() {
   return (
     <>
@@ -55,6 +55,9 @@ export default function App() {
         </div>
         <div className="">
           <Activities />
+        </div>
+        <div className="">
+          <RendezVousForm />
         </div>
       </body>
     </>
