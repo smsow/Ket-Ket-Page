@@ -9,7 +9,7 @@ export default function Search_Section() {
             </h1>
 
             <div className="search_main_content w-[100%] max-h-[800px] m-auto mt-[2%] flex justify-center items-center">
-            <div className="outline_container h-[700px] w-[80%] border-[#C8102E] border-opacity-25 border-[5px] rounded-[30px] flex items-center m-auto max-xl:h-[600px] max-ml:h-[675px] max-xl:w-[90%] max-ml:w-[90%]">
+            <div className="outline_container h-[700px] w-[80%] border-[#C8102E] border-opacity-25 border-[5px] rounded-[30px] flex items-center m-auto max-xl:h-[600px] max-ml:h-[675px] max-xl:w-[90%] max-ml:w-[90%] max-lg:w-[95%]">
                 <div className=" bg-dot-search bg-repeat  bg-cover bg-center mt-[2.15%] rounded-l-[25px] w-[49%] h-[100%] flex-col">
                 <div className="flex w-[78%] mt-[4%] h-[40%]  m-auto gap-[27px] max-ml:w-[90%]">
                     <div className="shadow-search-box w-[275px] h-[100%] bg-main-blue rounded-[24px] flex flex-col max-xl:h-[95%]">
