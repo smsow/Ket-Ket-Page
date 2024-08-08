@@ -14,6 +14,9 @@ module.exports = {
         'h5': '25px',
         'h6': '20px',
         'p': '16px',
+        'h4-custom': '31.25px', 
+        'custom-lg': '16px',
+        'label': '20px',
       },
       lineHeight: {
         'title': '110px',

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faPhone, faCalendar, faClipboard, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEnvelope, faPhone, faCalendar, faClipboard, faTimes, faComment } from '@fortawesome/free-solid-svg-icons';
 
 const RendezVousForm = () => {
     const [showForm, setShowForm] = useState(false);
@@ -10,7 +11,8 @@ const RendezVousForm = () => {
         email: '',
         telephone: '',
         date: '',
-        motif: ''
+        motif: '',
+        message: ''
     });
 
     const toggleForm = () => {
@@ -46,7 +48,8 @@ const RendezVousForm = () => {
                     email: '',
                     telephone: '',
                     date: '',
-                    motif: ''
+                    motif: '',
+                    message: ''
                 });
             } else {
                 const errorData = await response.json();
@@ -65,7 +68,7 @@ const RendezVousForm = () => {
 
             {showForm && (
                 <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-50 p-10">
-                    <div className="bg-white p-12 rounded-lg shadow-lg max-w-2xl w-full m-8 relative">
+                    <div className="bg-white p-12 rounded-lg shadow-lg max-w-4xl w-full m-8 relative">
                         {/* Close Button */}
                         <button
                             type="button"
@@ -74,11 +77,14 @@ const RendezVousForm = () => {
                         >
                             <FontAwesomeIcon icon={faTimes} className="text-2xl" />
                         </button>
-                        <h2 className="text-4xl font-bold mb-8"> PRENEZ RENDZ-VOUS</h2>
+                        <h2 className="text-h4-custom font-bold mb-8">Prenez Rendez-Vous</h2>
+                        <p className="text-custom-lg text-gray-700 mb-8">
+                            Afin que notre équipe puisse vous contacter à temps, veuillez remplir le formulaire avec des informations précises.
+                        </p>
                         <form onSubmit={handleSubmit}>
                             <div className="grid grid-cols-2 gap-8 mb-8">
                                 <div>
-                                    <label className="block text-lg font-medium text-gray-700 flex items-center">
+                                    <label className="font-quicksand block text-lg font-medium text-gray-700 flex items-center">
                                         <FontAwesomeIcon icon={faUser} className="mr-3 text-2xl" />
                                         Prénom
                                     </label>
@@ -87,52 +93,10 @@ const RendezVousForm = () => {
                                         name="prenom"
                                         value={formData.prenom}
                                         onChange={handleChange}
-                                        className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-5 px-6 text-xl" // Changed border-radius to rounded-lg
+                                        placeholder="Votre prénom"
+                                        className="bg-[#F9F9FF] mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-4 px-6 text-xl"
                                     />
                                 </div>
-                                <div>
-                                    <label className="block text-lg font-medium text-gray-700 flex items-center">
-                                        <FontAwesomeIcon icon={faUser} className="mr-3 text-2xl" />
-                                        Nom
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="nom"
-                                        value={formData.nom}
-                                        onChange={handleChange}
-                                        className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-5 px-6 text-xl" // Changed border-radius to rounded-lg
-                                    />
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-2 gap-8 mb-8">
-                                <div>
-                                    <label className="block text-lg font-medium text-gray-700 flex items-center">
-                                        <FontAwesomeIcon icon={faEnvelope} className="mr-3 text-2xl" />
-                                        Email
-                                    </label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-5 px-6 text-xl" // Changed border-radius to rounded-lg
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-lg font-medium text-gray-700 flex items-center">
-                                        <FontAwesomeIcon icon={faPhone} className="mr-3 text-2xl" />
-                                        Téléphone
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="telephone"
-                                        value={formData.telephone}
-                                        onChange={handleChange}
-                                        className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-5 px-6 text-xl" // Changed border-radius to rounded-lg
-                                    />
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-2 gap-8 mb-8">
                                 <div>
                                     <label className="block text-lg font-medium text-gray-700 flex items-center">
                                         <FontAwesomeIcon icon={faCalendar} className="mr-3 text-2xl" />
@@ -143,28 +107,99 @@ const RendezVousForm = () => {
                                         name="date"
                                         value={formData.date}
                                         onChange={handleChange}
-                                        className="mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-5 px-6 text-xl" // Changed border-radius to rounded-lg
+                                        className="bg-[#F9F9FF] font-quicksand mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-4 px-6 text-xl"
+                                    />
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-8 mb-8">
+                                <div>
+                                    <label className="block text-lg font-medium text-gray-700 flex items-center">
+                                        <FontAwesomeIcon icon={faUser} className="mr-3 text-2xl" />
+                                        Nom
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="nom"
+                                        value={formData.nom}
+                                        onChange={handleChange}
+                                        placeholder="Votre nom"
+                                        className="bg-[#F9F9FF] font-quicksand mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-4 px-6 text-xl"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-lg font-medium text-gray-700 flex items-center">
+                                    <label className=" font-quicksand block text-lg font-medium text-gray-700 flex items-center">
+                                        <FontAwesomeIcon icon={faComment} className="mr-3 text-2xl" />
+                                        Message Option de Demande
+                                    </label>
+                                    <select
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        className=" bg-[#F9F9FF] mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-4 px-6 text-xl"
+                                    >
+                                        <option value="">Sélectionnez un message</option>
+                                        <option value="partenariat">Demande de Partenariat</option>
+                                        <option value="demo">Demande de Demo</option>
+                                        <option value="rendezvous">Demande de Rendez-vous</option>
+                                        <option value="etc">Demande etc...</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-8 mb-8">
+                                <div>
+                                    <div>
+                                        <label className="font-quicksand block text-lg font-medium text-gray-700 flex items-center">
+                                            <FontAwesomeIcon icon={faEnvelope} className="mr-3 text-2xl" />
+                                            Email
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            placeholder="Votre email"
+                                            className="bg-[#F9F9FF] mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-4 px-6 text-xl"
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="font-quicksand block text-lg font-medium text-gray-700 flex items-center">
                                         <FontAwesomeIcon icon={faClipboard} className="mr-3 text-2xl" />
-                                        Motif
+                                        Motif ce rendez-vous
                                     </label>
                                     <textarea
                                         name="motif"
                                         value={formData.motif}
                                         onChange={handleChange}
-                                        className="bg-[#F9F9FF] mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-5 px-6 text-xl" // Changed border-radius to rounded-lg
+                                        placeholder="Expliquez le motif de votre rendez-vous"
+                                        className="bg-[#F9F9FF] mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-4 px-6 text-xl"
                                     ></textarea>
                                 </div>
                             </div>
+                            <div className="grid grid-cols-2 gap-8 mb-8">
+                                <div>
+                                    <label className="font-quicksand block text-lg font-medium text-gray-700 flex items-center">
+                                        <FontAwesomeIcon icon={faPhone} className="mr-3 text-2xl" />
+                                        Téléphone
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="telephone"
+                                        value={formData.telephone}
+                                        onChange={handleChange}
+                                        placeholder="Votre numéro de téléphone"
+                                        className="bg-[#F9F9FF] mt-2 block w-full border border-gray-300 rounded-lg shadow-sm py-4 px-6 text-xl"
+                                    />
+                                </div>
+                            </div>
+
                             <div className="flex justify-end">
                                 <button
                                     type="submit"
-                                    className="bg-main-blue text-white px-8 py-4 rounded-lg text-xl font-semibold"
+                                    className="font-quicksand bg-main-blue text-white px-8 py-4 rounded-lg text-xl font-semibold flex items-center"
                                 >
-                                    Soumettre
+                                    Reserve maintenant
+                                    <FontAwesomeIcon icon={faArrowRight} className="ml-3 text-xl" /> {/* Icône ajoutée ici */}
                                 </button>
                             </div>
                         </form>
