@@ -8,8 +8,11 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\DeleteAction;
 
 class PrendreRendezVousResource extends Resource
 {
@@ -26,8 +29,15 @@ class PrendreRendezVousResource extends Resource
                 TextInput::make('email')->email()->required(),
                 TextInput::make('telephone')->required(),
                 DatePicker::make('date')->required(),
-                TextInput::make('motif')->required(),
-                TextInput::make('message')->label('Message')->required(), // Champ "message" ajouté
+                TextInput::make('motif')->required(),Select::make('message')
+                ->label('Message')
+                ->options([
+                    'demande_partenariat' => 'Demande de Partenariat',
+                    'demande_demo' => 'Demande Demo',
+                    'demande_rendez_vous' => 'Demande Rendez-vous',
+                    'demande_etc' => 'Demande etc...',
+                ])
+                ->required(),
             ]);
     }
 
@@ -54,9 +64,13 @@ class PrendreRendezVousResource extends Resource
                 TextColumn::make('motif')
                     ->label('Motif')
                     ->icon('heroicon-o-clipboard-list'),
-                TextColumn::make('message') // Colonne "message" ajoutée
+                TextColumn::make('message') // Colonne "message" mise à jour pour afficher les valeurs sélectionnées
                     ->label('Message')
                     ->icon('heroicon-o-chat'),
+            ])
+            ->actions([
+                EditAction::make(),
+                DeleteAction::make(),
             ])
             ->filters([
                 // Ajoutez ici les filtres nécessaires
