@@ -9,15 +9,13 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Forms\Components\DatePicker;
 
 class PrendreRendezVousResource extends Resource
 {
     protected static ?string $model = PrendreRendezVous::class;
-    
-    protected static ?string $navigationIcon = 'heroicon-o-calendar';
 
+    protected static ?string $navigationIcon = 'heroicon-o-calendar';
 
     public static function form(Form $form): Form
     {
@@ -29,6 +27,7 @@ class PrendreRendezVousResource extends Resource
                 TextInput::make('telephone')->required(),
                 DatePicker::make('date')->required(),
                 TextInput::make('motif')->required(),
+                TextInput::make('message')->label('Message')->required(), // Champ "message" ajouté
             ]);
     }
 
@@ -55,9 +54,12 @@ class PrendreRendezVousResource extends Resource
                 TextColumn::make('motif')
                     ->label('Motif')
                     ->icon('heroicon-o-clipboard-list'),
+                TextColumn::make('message') // Colonne "message" ajoutée
+                    ->label('Message')
+                    ->icon('heroicon-o-chat'),
             ])
             ->filters([
-                // Add any filters you need here
+                // Ajoutez ici les filtres nécessaires
             ]);
     }
 
