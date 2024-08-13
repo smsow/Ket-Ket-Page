@@ -1,4 +1,9 @@
-export default function NavBar() {
+import React, { useState, useRef, useEffect } from 'react';
+import Modal_partner_3 from './modal_partner3';
+
+
+
+const NavBar = ({ onOpenModal }) => {
     return (
         <div className="Navbar  flex items-center max-[1200px]:w-[100%]">
             <div className="logo flex items-center">
@@ -22,15 +27,19 @@ export default function NavBar() {
               
               <button className="relative rendezvous-button-shadow bg-main-red text-white text-xl w-[52%] font-bold h-[100%] 
               rounded-[10px] flex justify-center items-center gap-[12px] max-[1690px]:text-lg max-2xl:text-base 
-              max-xl:text-sm">
+              max-xl:text-sm "
+              onClick={onOpenModal}>
                  
              <div className="relative ">Prenez Rendez-Vous</div>
-              </button>
+             </button>
 
                 </div>    
                 <div className="w-4 h-5 ml-auto">
                 </div> 
-                
         </div>
-      )
-}
+
+        
+);
+};
+
+export default NavBar;
