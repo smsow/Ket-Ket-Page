@@ -20,6 +20,7 @@ class StorePrendreRendezVousRequest extends FormRequest
             'telephone' => 'required|string|max:20',
             'date' => 'required|date',
             'motif' => 'required|string',
+            'message' => 'required|string', // Ajout du champ "message"
         ];
     }
 
@@ -32,6 +33,7 @@ class StorePrendreRendezVousRequest extends FormRequest
             'telephone.required' => 'Le numéro de téléphone est obligatoire.',
             'date.required' => 'La date est obligatoire.',
             'motif.required' => 'Le motif est obligatoire.',
+            'message.required' => 'Le message est obligatoire.', // Message pour le champ "message"
         ];
     }
 }

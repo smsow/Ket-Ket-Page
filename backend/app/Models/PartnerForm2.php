@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PrendreRendezVous extends Model
+class PartnerForm2 extends Model
 {
     use HasFactory;
 
-    protected $table = 'prendre_rendez_vous';
-
+    protected $table = 'partners_form2';
+    
     protected $fillable = [
         'prenom',
         'nom',
         'email',
-        'telephone',
-        'date',
-        'motif',
-        'message',
+        'numero_telephone',
+        'date_disponible',
+        'description_entreprise',
     ];
 }

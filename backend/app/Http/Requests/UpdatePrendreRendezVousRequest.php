@@ -20,6 +20,7 @@ class UpdatePrendreRendezVousRequest extends FormRequest
             'telephone' => 'sometimes|string|max:20',
             'date' => 'sometimes|date',
             'motif' => 'sometimes|string',
+            'message' => 'sometimes|string', // Ajout du champ "message"
         ];
     }
 
@@ -32,6 +33,7 @@ class UpdatePrendreRendezVousRequest extends FormRequest
             'telephone.sometimes' => 'Le numéro de téléphone est facultatif, mais doit être valide si présent.',
             'date.sometimes' => 'La date est facultative, mais doit être valide si présente.',
             'motif.sometimes' => 'Le motif est facultatif, mais doit être valide si présent.',
+            'message.sometimes' => 'Le message est facultatif, mais doit être valide si présent.', // Message pour le champ "message"
         ];
     }
 }
