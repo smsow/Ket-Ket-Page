@@ -37,6 +37,7 @@ module.exports = {
         'main-red': "#C8102E",
         'main-blue': "#1D428A",
         'main-black': "#333333",
+        'placeholder-grey': '#DDE3ED',
       },
 
       textColor: {
@@ -58,6 +59,10 @@ module.exports = {
         'dots-active': "url(../public/img/dot-active.png)",
         'back-search': "url(../public/img/background-search.png)",
         'dot-search': "url(../public/img/dot-search.png)",
+        'gym1': "url(../public/img/gym1.webp)"
+      },
+      boxShadow: {
+        'shadow-search': '0px 20px 20px -20px rgba(0, 0, 0, 0.25)',
       },
    
     },
