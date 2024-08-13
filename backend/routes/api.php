@@ -6,11 +6,14 @@
                 use App\Http\Controllers\Api\ActivityController;
                 use App\Http\Controllers\Api\AdvantageController;
             use App\Http\Controllers\Api\ApiPartenaireController;
-    use App\Http\Controllers\Api\DevenerPartenaireController;
-    use App\Http\Controllers\Api\MediaItemController;
+use App\Http\Controllers\Api\ContactPartenaireController;
+use App\Http\Controllers\Api\DevenerPartenaireController;
+use App\Http\Controllers\Api\EntrepriseController;
+use App\Http\Controllers\Api\MediaItemController;
         use App\Http\Controllers\Api\NumberController;
     use App\Http\Controllers\Api\OperationController;
-    use App\Http\Controllers\Api\PartnerForm1Controller;
+use App\Http\Controllers\Api\PartenaireSportController;
+use App\Http\Controllers\Api\PartnerForm1Controller;
     use App\Http\Controllers\Api\PartnerForm2Controller;
 use App\Http\Controllers\Api\PartnerForm3Controller;
 use App\Http\Controllers\Api\PartnerForm4Controller;
@@ -298,5 +301,21 @@ Route::put('partners-form4/{id}', [PartnerForm4Controller::class, 'update']);
 // - Description: Met à jour un enregistrement spécifique de PartnerForm4.
 
 Route::delete('partners-form4/{id}', [PartnerForm4Controller::class, 'destroy']);
-// - Méthode: DELETE
-// - Description: Supprime un enregistrement spécifique de PartnerForm4.
+                    // - Méthode: DELETE
+                    // - Description: Supprime un enregistrement spécifique de PartnerForm4.
+
+                    //route
+                    Route::get('/partenaire-sports', [PartenaireSportController::class, 'index']);
+                    Route::post('/partenaire-sports', [PartenaireSportController::class, 'store']);
+                    Route::get('/partenaire-sports/{id}', [PartenaireSportController::class, 'show']);
+                    Route::put('/partenaire-sports/{id}', [PartenaireSportController::class, 'update']);
+                    Route::delete('/partenaire-sports/{id}', [PartenaireSportController::class, 'destroy']);
+
+                  //  Route::apiResource('partenaire-sports', PartenaireSportController::class);
+                    Route::apiResource('contact-partenaires', ContactPartenaireController::class);
+                    // Route::apiResource('entreprises', EntrepriseController::class);
+                        Route::get('/entreprises', [EntrepriseController::class, 'index']);
+                        Route::post('/entreprises', [EntrepriseController::class, 'store']);
+                        Route::get('/entreprises/{id}', [EntrepriseController::class, 'show']);
+                        Route::put('/entreprises/{id}', [EntrepriseController::class, 'update']);
+                        Route::delete('/entreprises/{id}', [EntrepriseController::class, 'destroy']);
