@@ -1,11 +1,14 @@
 import React from "react";
 import ComponentSearch from "./small_components/component_search";
 import gym1 from "../../img/gym1.webp";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css'
 
 export default function Search_main() { 
     return(
         <>
-        <div className="h-[50px] w-[37.5%] flex justify-center gap-[10px]">
+        
+        <div className="h-[50px] w-[100%] flex justify-center gap-[10px]">
                 <div className=" h-[100%] w-[350px]  flex items-center">
                     <div className=" w-[12.5%] rounded-l-[5px] h-[100%] bg-placeholder-grey">
                     <svg className="ml-[11px] mt-[32%]" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +31,7 @@ export default function Search_main() {
                     <input className="h-[100%] w-[87.5%] indent-2 bg-placeholder-grey rounded-r-[5px] text-h6 font-bold font-quicksand text-black placeholder:text-[#828282] placeholder:font-bold placeholder:indent-2 placeholder:pt-[1px]" placeholder="Quartiers, Villes" type="text" />
                 </div>
             </div>
-            <div className="h-[95px] w-[37.5%] bg-purple-400 flex justify-center">
+            <div className="h-[95px] w-[100%]  flex justify-center">
 
                 <button className="w-[250px] h-[60px] bg-white border-[#1D428A] border-2 rounded-[15px] mx-auto mt-[25px] flex items-center justify-center gap-[10px]">
                     <h4 className="text-h6 text-main-blue font-bold font-quicksand">
@@ -40,9 +43,9 @@ export default function Search_main() {
 
                 </button>
             </div>
-            <div className="bg-amber-300 h-[50px] w-[37.5%]"></div>
-            <div className="h-[805px] w-[37.5%] bg-blue-400 overflow-y-scroll">
-                <div className="wrapper h-auto w-[37.5%] flex flex-col gap-[18px]">
+            <div className=" h-[50px] w-[100%]"></div>
+            <div className="h-[805px] w-[100%]  overflow-y-scroll">
+                <div className="wrapper h-auto w-[100%] flex flex-col gap-[18px]">
                 <ComponentSearch backgroundImage={gym1}
                 Title={"RMS Sport"}
                 Time = {"06:00 - 20:00"}
