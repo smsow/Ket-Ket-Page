@@ -1,13 +1,75 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import ComponentSearch from "./small_components/component_search";
 import gym1 from "../../img/gym1.webp";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css'
+import 'leaflet/dist/leaflet.css';
 
-export default function Search_main() { 
+
+
+export default function Search_main({setSelectedEnterprise}) {
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const [isClicked, setIsClicked] = useState(false);
+    
+  const handleDivClick = (index, location) => { 
+    setSelectedEnterprise(location);
+    setActiveIndex(index); // Set the active index
+  };
+    const [locations, setLocations] = useState([]);
+  const [useStaticImage, setUseStaticImage] = useState(false); // State to decide which image to use
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/partenaire-sports', {
+      method: 'GET',
+      headers: {
+        'Cache-Control': 'no-cache',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Check if the response contains valid data
+        if (data.data && Array.isArray(data.data)) {
+          setLocations(data.data); // Set all locations
+        } else {
+          console.warn('No valid data found in response, using fallback data.');
+          setLocations(fallbackLocations); // Use fallback data
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error, 'Using fallback data.');
+        setLocations(fallbackLocations); // Use fallback data in case of error
+      });
+  }, []);
+
+    const fallbackLocations = [
+        {
+          title: "RMS Static",
+          time: "07:00 - 21:00",
+          pNumber: "33 867 00 01",
+          location: `15°43'23.2"N 18°28'35., Rue 1, Dakar`,
+        },
+        {
+          title: "Life Static",
+          time: "08:00 - 22:00",
+          pNumber: "33 867 00 02",
+          location: `16°43'43.2"N 19°29'45., Rue 2, Dakar`,
+        },
+        {
+          title: "Fallback Sport 3",
+          time: "06:00 - 19:00",
+          pNumber: "33 867 00 03",
+          location: `17°43'53.2"N 20°30'55., Rue 3, Dakar`,
+        },
+      ];
+
+      const fallbackImages = [
+        '/img/gym1.webp',
+        '/img/lifefitness.jpg',
+        '/img/running-icon.png',
+        '/img/equality.png'
+      ];
+      
     return(
         <>
-        
         <div className="h-[50px] w-[100%] flex justify-center gap-[10px]">
                 <div className=" h-[100%] w-[350px]  flex items-center">
                     <div className=" w-[12.5%] rounded-l-[5px] h-[100%] bg-placeholder-grey">
@@ -46,13 +108,22 @@ export default function Search_main() {
             <div className=" h-[50px] w-[100%]"></div>
             <div className="h-[805px] w-[100%]  overflow-y-scroll">
                 <div className="wrapper h-auto w-[100%] flex flex-col gap-[18px]">
-                <ComponentSearch backgroundImage={gym1}
-                Title={"RMS Sport"}
-                Time = {"06:00 - 20:00"}
-                pNumber={"33 867 35 47"}
-                Location={`14°43'33.2"N 17°27'35., Rue 6, Dakar`}
-                
-                />
+                {locations.map((location, index) => (
+        <ComponentSearch
+          key={index}
+          backgroundImage={
+            location.images
+              ? `http://localhost:8000/storage/${location.images}`
+              : fallbackImages[index % fallbackImages.length]
+          }
+          Title={location.nom || fallbackLocations[index % fallbackLocations.length].title}
+          Time={location.horaire || fallbackLocations[index % fallbackLocations.length].time}
+          pNumber={location.numero || fallbackLocations[index % fallbackLocations.length].pNumber}
+          Location={location.address || fallbackLocations[index % fallbackLocations.length].location}
+          isClicked={activeIndex === index} // Pass the clicked state
+          onDivClick={() => handleDivClick(index, location)} // Pass the click handler
+        />
+      ))}
                      <ComponentSearch backgroundImage={gym1}
                 Title={"Life Fitness"}
                 Time = {"10:00 - 22:00"}

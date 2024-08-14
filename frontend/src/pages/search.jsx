@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import NavBar from "../components/navbar";
 import NavIcon from "../components/components_search_page/nav_icon";
 import Search_main from "../components/components_search_page/search_main";
@@ -7,6 +7,8 @@ import { MapContainer } from "react-leaflet";
 import Map from "../components/components_search_page/map";
 
 export default function SearchPage() {
+    const [selectedEnterprise, setSelectedEnterprise] = useState();
+    console.log(selectedEnterprise);
     return(
         <>
         <head>
@@ -18,10 +20,10 @@ export default function SearchPage() {
         <div className="flex w-[100%] h-[100%] ">
         <div className="w-[37.5%] h-[100%] ">
         <NavIcon />
-        <Search_main />
+        <Search_main setSelectedEnterprise={setSelectedEnterprise} />
         </div>
         <div className="w-[62.5%] h-[100%]">
-        <Map />
+        <Map latitude={selectedEnterprise?.latitude} longitude={selectedEnterprise?.longitude} entrepriseName={selectedEnterprise?.nom} />
         </div>
         </div> 
 
