@@ -6,6 +6,7 @@
                 use App\Http\Controllers\Api\ActivityController;
                 use App\Http\Controllers\Api\AdvantageController;
             use App\Http\Controllers\Api\ApiPartenaireController;
+use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\ContactPartenaireController;
 use App\Http\Controllers\Api\DevenerPartenaireController;
 use App\Http\Controllers\Api\EntrepriseController;
@@ -333,3 +334,19 @@ Route::delete('partners-form4/{id}', [PartnerForm4Controller::class, 'destroy'])
                         Route::get('/entreprises/{id}', [EntrepriseController::class, 'show']);
                         Route::put('/entreprises/{id}', [EntrepriseController::class, 'update']);
                         Route::delete('/entreprises/{id}', [EntrepriseController::class, 'destroy']);
+                        //route clients
+                        //Route::apiResource('clients', ClientController::class);
+                        // Route pour obtenir la liste de tous les clients
+                        Route::get('clients', [ClientController::class, 'index']); // GET /api/clients
+
+                        // Route pour obtenir les détails d'un client spécifique par ID
+                        Route::get('clients/{client}', [ClientController::class, 'show']); // GET /api/clients/{id}
+
+                        // Route pour créer un nouveau client
+                        Route::post('clients', [ClientController::class, 'store']); // POST /api/clients
+
+                        // Route pour mettre à jour un client existant par ID
+                        Route::put('clients/{client}', [ClientController::class, 'update']); // PUT /api/clients/{id}
+
+                        // Route pour supprimer un client par ID
+                        Route::delete('clients/{client}', [ClientController::class, 'destroy']); // DELETE /api/clients/{id}
