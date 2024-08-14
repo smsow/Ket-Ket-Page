@@ -4,7 +4,8 @@
                     use App\Http\Controllers\Api\AccolandController;
                     use App\Http\Controllers\AboutController;
                 use App\Http\Controllers\Api\ActivityController;
-                use App\Http\Controllers\Api\AdvantageController;
+use App\Http\Controllers\Api\AdresseController;
+use App\Http\Controllers\Api\AdvantageController;
             use App\Http\Controllers\Api\ApiPartenaireController;
 use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\ContactPartenaireController;
@@ -241,31 +242,31 @@ use App\Http\Controllers\Api\PrendreRendezVousController;
     Route::delete('operations/{id}', [OperationController::class, 'destroy']);
 
 
-                    //route partenaire Form1
-                    // Liste tous les enregistrements de PartnerForm1
-                    Route::get('partners-form1', [PartnerForm1Controller::class, 'index']);
+       //route partenaire Form1
+       // Liste tous les enregistrements de PartnerForm1
+       Route::get('partners-form1', [PartnerForm1Controller::class, 'index']);
 
-                    // Crée un nouvel enregistrement PartnerForm1
-                    Route::post('partners-form1', [PartnerForm1Controller::class, 'store']);
+       // Crée un nouvel enregistrement PartnerForm1
+       Route::post('partners-form1', [PartnerForm1Controller::class, 'store']);
 
-                    // Récupère un enregistrement spécifique de PartnerForm1 par son ID
-                    Route::get('partners-form1/{id}', [PartnerForm1Controller::class, 'show']);
+       // Récupère un enregistrement spécifique de PartnerForm1 par son ID
+       Route::get('partners-form1/{id}', [PartnerForm1Controller::class, 'show']);
 
-                    // Met à jour un enregistrement existant de PartnerForm1
-                    Route::put('partners-form1/{id}', [PartnerForm1Controller::class, 'update']);
+       // Met à jour un enregistrement existant de PartnerForm1
+       Route::put('partners-form1/{id}', [PartnerForm1Controller::class, 'update']);
 
-                    // Supprime un enregistrement spécifique de PartnerForm1 par son ID
+       // Supprime un enregistrement spécifique de PartnerForm1 par son ID
                     Route::delete('partners-form1/{id}', [PartnerForm1Controller::class, 'destroy']);
 
 
                 //route PaternerForm2
 
                 // Routes pour les partenaires Form2
-                Route::get('partners-form2', [PartnerForm2Controller::class, 'index']);
-                Route::post('partners-form2', [PartnerForm2Controller::class, 'store']);
-                Route::get('partners-form2/{partner_form2}', [PartnerForm2Controller::class, 'show']);
-                Route::put('partners-form2/{partner_form2}', [PartnerForm2Controller::class, 'update']);
-                Route::delete('partners-form2/{partner_form2}', [PartnerForm2Controller::class, 'destroy']);
+        Route::get('partners-form2', [PartnerForm2Controller::class, 'index']);
+        Route::post('partners-form2', [PartnerForm2Controller::class, 'store']);
+        Route::get('partners-form2/{partner_form2}', [PartnerForm2Controller::class, 'show']);
+        Route::put('partners-form2/{partner_form2}', [PartnerForm2Controller::class, 'update']);
+        Route::delete('partners-form2/{partner_form2}', [PartnerForm2Controller::class, 'destroy']);
 
 //route form3
 
@@ -302,51 +303,66 @@ Route::put('partners-form4/{id}', [PartnerForm4Controller::class, 'update']);
 // - Description: Met à jour un enregistrement spécifique de PartnerForm4.
 
 Route::delete('partners-form4/{id}', [PartnerForm4Controller::class, 'destroy']);
-                    // - Méthode: DELETE
-                    // - Description: Supprime un enregistrement spécifique de PartnerForm4.
+  // - Méthode: DELETE
+  // - Description: Supprime un enregistrement spécifique de PartnerForm4.
 
-                    //route
-                    Route::get('/partenaire-sports', [PartenaireSportController::class, 'index']);
-                    Route::post('/partenaire-sports', [PartenaireSportController::class, 'store']);
-                    Route::get('/partenaire-sports/{id}', [PartenaireSportController::class, 'show']);
-                    Route::put('/partenaire-sports/{id}', [PartenaireSportController::class, 'update']);
-                    Route::delete('/partenaire-sports/{id}', [PartenaireSportController::class, 'destroy']);
+  //route
+  Route::get('/partenaire-sports', [PartenaireSportController::class, 'index']);
+  Route::post('/partenaire-sports', [PartenaireSportController::class, 'store']);
+  Route::get('/partenaire-sports/{id}', [PartenaireSportController::class, 'show']);
+  Route::put('/partenaire-sports/{id}', [PartenaireSportController::class, 'update']);
+  Route::delete('/partenaire-sports/{id}', [PartenaireSportController::class, 'destroy']);
 
-                    //  Route::apiResource('partenaire-sports', PartenaireSportController::class);
-                    //Route::apiResource('contact-partenaires', ContactPartenaireController::class);
-                    // Affiche une liste de tous les contacts partenaires
-                    Route::get('contact-partenaires', [ContactPartenaireController::class, 'index']);
+  //  Route::apiResource('partenaire-sports', PartenaireSportController::class);
+  //Route::apiResource('contact-partenaires', ContactPartenaireController::class);
+  // Affiche une liste de tous les contacts partenaires
+  Route::get('contact-partenaires', [ContactPartenaireController::class, 'index']);
 
-                    // Crée un nouveau contact partenaire (affiche le formulaire de création, souvent utilisé en POST)
-                    Route::post('contact-partenaires', [ContactPartenaireController::class, 'store']);
+  // Crée un nouveau contact partenaire (affiche le formulaire de création, souvent utilisé en POST)
+  Route::post('contact-partenaires', [ContactPartenaireController::class, 'store']);
 
-                    // Affiche les détails d'un contact partenaire spécifique
-                    Route::get('contact-partenaires/{contactPartenaire}', [ContactPartenaireController::class, 'show']);
+  // Affiche les détails d'un contact partenaire spécifique
+  Route::get('contact-partenaires/{contactPartenaire}', [ContactPartenaireController::class, 'show']);
 
-                    // Met à jour les informations d'un contact partenaire spécifique
-                    Route::put('contact-partenaires/{contactPartenaire}', [ContactPartenaireController::class, 'update']);
+  // Met à jour les informations d'un contact partenaire spécifique
+  Route::put('contact-partenaires/{contactPartenaire}', [ContactPartenaireController::class, 'update']);
 
-                    // Supprime un contact partenaire spécifique
-                    Route::delete('contact-partenaires/{contactPartenaire}', [ContactPartenaireController::class, 'destroy']);
-                    // Route::apiResource('entreprises', EntrepriseController::class);
-                        Route::get('/entreprises', [EntrepriseController::class, 'index']);
-                        Route::post('/entreprises', [EntrepriseController::class, 'store']);
-                        Route::get('/entreprises/{id}', [EntrepriseController::class, 'show']);
-                        Route::put('/entreprises/{id}', [EntrepriseController::class, 'update']);
-                        Route::delete('/entreprises/{id}', [EntrepriseController::class, 'destroy']);
-                        //route clients
-                        //Route::apiResource('clients', ClientController::class);
-                        // Route pour obtenir la liste de tous les clients
-                        Route::get('clients', [ClientController::class, 'index']); // GET /api/clients
+  // Supprime un contact partenaire spécifique
+  Route::delete('contact-partenaires/{contactPartenaire}', [ContactPartenaireController::class, 'destroy']);
+  // Route::apiResource('entreprises', EntrepriseController::class);
+      Route::get('/entreprises', [EntrepriseController::class, 'index']);
+      Route::post('/entreprises', [EntrepriseController::class, 'store']);
+      Route::get('/entreprises/{id}', [EntrepriseController::class, 'show']);
+      Route::put('/entreprises/{id}', [EntrepriseController::class, 'update']);
+      Route::delete('/entreprises/{id}', [EntrepriseController::class, 'destroy']);
+                    //route clients
+                    //Route::apiResource('clients', ClientController::class);
+                    // Route pour obtenir la liste de tous les clients
+                    Route::get('clients', [ClientController::class, 'index']); // GET /api/clients
 
-                        // Route pour obtenir les détails d'un client spécifique par ID
-                        Route::get('clients/{client}', [ClientController::class, 'show']); // GET /api/clients/{id}
+                    // Route pour obtenir les détails d'un client spécifique par ID
+                    Route::get('clients/{client}', [ClientController::class, 'show']); // GET /api/clients/{id}
 
-                        // Route pour créer un nouveau client
-                        Route::post('clients', [ClientController::class, 'store']); // POST /api/clients
+                    // Route pour créer un nouveau client
+                    Route::post('clients', [ClientController::class, 'store']); // POST /api/clients
 
-                        // Route pour mettre à jour un client existant par ID
-                        Route::put('clients/{client}', [ClientController::class, 'update']); // PUT /api/clients/{id}
+                    // Route pour mettre à jour un client existant par ID
+                    Route::put('clients/{client}', [ClientController::class, 'update']); // PUT /api/clients/{id}
 
-                        // Route pour supprimer un client par ID
-                        Route::delete('clients/{client}', [ClientController::class, 'destroy']); // DELETE /api/clients/{id}
+                    // Route pour supprimer un client par ID
+                    Route::delete('clients/{client}', [ClientController::class, 'destroy']); // DELETE /api/clients/{id}
+
+                        // Route pour obtenir la liste de toutes les adresses
+                        Route::get('adresses', [AdresseController::class, 'index']); // GET /api/adresses
+
+                        // Route pour obtenir les détails d'une adresse spécifique par ID
+                        Route::get('adresses/{adresse}', [AdresseController::class, 'show']); // GET /api/adresses/{id}
+
+                        // Route pour créer une nouvelle adresse
+                        Route::post('adresses', [AdresseController::class, 'store']); // POST /api/adresses
+
+                        // Route pour mettre à jour une adresse existante par ID
+                        Route::put('adresses/{adresse}', [AdresseController::class, 'update']); // PUT /api/adresses/{id}
+
+                        // Route pour supprimer une adresse par ID
+                        Route::delete('adresses/{adresse}', [AdresseController::class, 'destroy']); // DELETE /api/adresses/{id}

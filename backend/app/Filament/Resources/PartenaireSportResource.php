@@ -9,6 +9,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 
 class PartenaireSportResource extends Resource
 {
@@ -76,51 +77,54 @@ class PartenaireSportResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return $table
-            ->columns([
-                Tables\Columns\TextColumn::make('nom')
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('numero')
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('address')
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('activites')
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('horaire')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('equipements')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('categorie')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('quartier')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('statut')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('date_fin')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('date_creation')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('date_modification')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('latitude')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('longitude')
-                    ->sortable(),
-                // Tables\Columns\ImageColumn::make('images')
-                //     ->disk('public')
-                //     ->circular(),
-                Tables\Columns\ImageColumn::make('images')
-                    ->disk('public')
-                    ->getStateUsing(function ($record) {
-                        return $record->images ? $record->images[0] : null; // Adjust for first image
-                    })
-                    ->circular(),
+        $columns = [
+            Tables\Columns\TextColumn::make('nom')
+                ->sortable()
+                ->searchable(),
+            Tables\Columns\TextColumn::make('numero')
+                ->sortable()
+                ->searchable(),
+            Tables\Columns\TextColumn::make('address')
+                ->sortable()
+                ->searchable(),
+            Tables\Columns\TextColumn::make('activites')
+                ->sortable()
+                ->searchable(),
+            Tables\Columns\TextColumn::make('horaire')
+                ->sortable(),
+            Tables\Columns\TextColumn::make('equipements')
+                ->sortable(),
+            Tables\Columns\TextColumn::make('categorie')
+                ->sortable(),
+            Tables\Columns\TextColumn::make('quartier')
+                ->sortable(),
+            Tables\Columns\TextColumn::make('statut')
+                ->sortable(),
+            Tables\Columns\TextColumn::make('date_fin')
+                ->sortable(),
+            Tables\Columns\TextColumn::make('date_creation')
+                ->sortable(),
+            Tables\Columns\TextColumn::make('date_modification')
+                ->sortable(),
+            Tables\Columns\TextColumn::make('latitude')
+                ->sortable(),
+            Tables\Columns\TextColumn::make('longitude')
+                ->sortable(),
+        ];
 
-            ])
+        // Générer dynamiquement les colonnes pour les images
+        $maxImages = 3; // Supposons que vous avez un maximum de 5 images
+        for ($i = 0; $i < $maxImages; $i++) {
+            $columns[] = ImageColumn::make("image_{$i}")
+                ->disk('public')
+                ->getStateUsing(function ($record) use ($i) {
+                    return $record->images[$i] ?? null; // Affiche l'image si elle existe
+                })
+                ->circular();
+        }
+
+        return $table
+            ->columns($columns)
             ->filters([
                 // Add filters if needed
             ])
