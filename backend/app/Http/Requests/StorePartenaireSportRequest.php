@@ -28,7 +28,8 @@ class StorePartenaireSportRequest extends FormRequest
             'date_modification' => 'nullable|date',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
-            'images' => 'nullable|string|max:255',
+            'images' => 'nullable|array',
+            'images.*' => 'nullable|string|max:255',
             'contact_id' => 'required|exists:contact_partenaire,id',
             'description' => 'nullable|string',
         ];
@@ -49,6 +50,8 @@ class StorePartenaireSportRequest extends FormRequest
             'date_creation.required' => 'La date de création est obligatoire.',
             'latitude.required' => 'La latitude est obligatoire.',
             'longitude.required' => 'La longitude est obligatoire.',
+            'images.array' => 'Le champ images doit être un tableau.',
+            'images.*.string' => 'Chaque image doit être une chaîne de caractères.',
             'contact_id.required' => "L'identifiant de contact est obligatoire.",
             'contact_id.exists' => "L'identifiant de contact doit exister dans la table contact_partenaire.",
         ];

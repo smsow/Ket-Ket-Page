@@ -28,6 +28,10 @@ class PartenaireSport extends Model
         'description'
     ];
 
+    protected $casts = [
+        'images' => 'array',
+    ];
+
     public function contactPartenaire()
     {
         return $this->belongsTo(ContactPartenaire::class, 'contact_id');

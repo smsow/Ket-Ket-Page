@@ -19,7 +19,7 @@ class Entreprise extends Model
         'date_modification',
         'latitude',
         'longitude',
-        'images',
+       // 'images',
         'contact_id'
     ];
     // protected $casts = [

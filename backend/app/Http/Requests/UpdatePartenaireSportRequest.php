@@ -28,7 +28,8 @@ class UpdatePartenaireSportRequest extends FormRequest
             'date_modification' => 'nullable|date',
             'latitude' => 'sometimes|numeric',
             'longitude' => 'sometimes|numeric',
-            'images' => 'nullable|string|max:255',
+            'images.array' => 'Le champ images doit être un tableau.',
+            'images.*.string' => 'Chaque image doit être une chaîne de caractères.',
             'contact_id' => 'sometimes|exists:contact_partenaire,id',
             'description' => 'nullable|string',
         ];
@@ -49,6 +50,10 @@ class UpdatePartenaireSportRequest extends FormRequest
             'date_creation.sometimes' => 'La date de création peut être modifiée.',
             'latitude.sometimes' => 'La latitude peut être modifiée.',
             'longitude.sometimes' => 'La longitude peut être modifiée.',
+            'images.array' => 'Les images doivent être un tableau.',
+            'images.*.file' => 'Chaque élément dans les images doit être un fichier valide.',
+            'images.*.mimes' => 'Chaque image doit être au format JPG, JPEG, PNG, ou BMP.',
+            'images.*.max' => 'Chaque image ne doit pas dépasser 5 Mo.',
             'contact_id.sometimes' => "L'identifiant de contact peut être modifié.",
             'contact_id.exists' => "L'identifiant de contact doit exister dans la table contact_partenaire.",
         ];

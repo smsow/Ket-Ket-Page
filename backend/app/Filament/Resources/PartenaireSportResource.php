@@ -3,16 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PartenaireSportResource\Pages;
-use App\Filament\Resources\PartenaireSportResource\RelationManagers;
 use App\Models\PartenaireSport;
-use App\Models\ContactPartenaire;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PartenaireSportResource extends Resource
 {
@@ -29,6 +25,7 @@ class PartenaireSportResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('numero')
                     ->required()
+                    ->maxLength(255)
                     ->numeric(),
                 Forms\Components\TextInput::make('address')
                     ->required()
@@ -40,13 +37,10 @@ class PartenaireSportResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('equipements')
-                    ->nullable()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('categorie')
-                    ->nullable()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('quartier')
-                    ->nullable()
                     ->maxLength(255),
                 Forms\Components\Select::make('statut')
                     ->options([
@@ -61,17 +55,15 @@ class PartenaireSportResource extends Resource
                 Forms\Components\DatePicker::make('date_modification')
                     ->nullable(),
                 Forms\Components\TextInput::make('latitude')
-                    ->nullable()
                     ->numeric(),
                 Forms\Components\TextInput::make('longitude')
-                    ->nullable()
                     ->numeric(),
-            Forms\Components\FileUpload::make('images')
-            ->disk('public')
-            ->directory('images')
-            ->required()
-            ->image()
-            ->maxSize(5 * 1024),
+                Forms\Components\FileUpload::make('images')
+                    ->disk('public')
+                    ->directory('images')
+                    ->multiple() // Allow multiple image uploads
+                    ->image()
+                    ->maxSize(5 * 1024), // Max size of 5 MB
                 Forms\Components\Select::make('contact_id')
                     ->label('Contact Partenaire')
                     ->relationship('contactPartenaire', 'nom')
@@ -118,9 +110,16 @@ class PartenaireSportResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('longitude')
                     ->sortable(),
-                    Tables\Columns\ImageColumn::make('images')
-                ->disk('public')
-                ->circular(), 
+                // Tables\Columns\ImageColumn::make('images')
+                //     ->disk('public')
+                //     ->circular(),
+                Tables\Columns\ImageColumn::make('images')
+                    ->disk('public')
+                    ->getStateUsing(function ($record) {
+                        return $record->images ? $record->images[0] : null; // Adjust for first image
+                    })
+                    ->circular(),
+
             ])
             ->filters([
                 // Add filters if needed

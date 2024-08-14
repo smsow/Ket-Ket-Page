@@ -311,8 +311,22 @@ Route::delete('partners-form4/{id}', [PartnerForm4Controller::class, 'destroy'])
                     Route::put('/partenaire-sports/{id}', [PartenaireSportController::class, 'update']);
                     Route::delete('/partenaire-sports/{id}', [PartenaireSportController::class, 'destroy']);
 
-                  //  Route::apiResource('partenaire-sports', PartenaireSportController::class);
-                    Route::apiResource('contact-partenaires', ContactPartenaireController::class);
+                    //  Route::apiResource('partenaire-sports', PartenaireSportController::class);
+                    //Route::apiResource('contact-partenaires', ContactPartenaireController::class);
+                    // Affiche une liste de tous les contacts partenaires
+                    Route::get('contact-partenaires', [ContactPartenaireController::class, 'index']);
+
+                    // Crée un nouveau contact partenaire (affiche le formulaire de création, souvent utilisé en POST)
+                    Route::post('contact-partenaires', [ContactPartenaireController::class, 'store']);
+
+                    // Affiche les détails d'un contact partenaire spécifique
+                    Route::get('contact-partenaires/{contactPartenaire}', [ContactPartenaireController::class, 'show']);
+
+                    // Met à jour les informations d'un contact partenaire spécifique
+                    Route::put('contact-partenaires/{contactPartenaire}', [ContactPartenaireController::class, 'update']);
+
+                    // Supprime un contact partenaire spécifique
+                    Route::delete('contact-partenaires/{contactPartenaire}', [ContactPartenaireController::class, 'destroy']);
                     // Route::apiResource('entreprises', EntrepriseController::class);
                         Route::get('/entreprises', [EntrepriseController::class, 'index']);
                         Route::post('/entreprises', [EntrepriseController::class, 'store']);

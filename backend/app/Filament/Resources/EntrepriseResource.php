@@ -52,12 +52,12 @@ class EntrepriseResource extends Resource
                 Forms\Components\TextInput::make('longitude')
                     ->nullable()
                     ->numeric(),
-            Forms\Components\FileUpload::make('images')
-            ->disk('public')
-            ->directory('images')
-            ->required()
-            ->image()
-            ->maxSize(5 * 1024),
+            // Forms\Components\FileUpload::make('images')
+            // ->disk('public')
+            // ->directory('images')
+            // ->required()
+            // ->image()
+            // ->maxSize(5 * 1024),
                 Forms\Components\Select::make('contact_id')
                     ->label('Contact Partenaire')
                     ->relationship('contactPartenaire', 'nom')
@@ -93,9 +93,10 @@ class EntrepriseResource extends Resource
                 Tables\Columns\TextColumn::make('latitude')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('longitude')
-                    ->sortable(),Tables\Columns\ImageColumn::make('images')
-                ->disk('public')
-                ->circular(), 
+                    ->sortable(),
+                //     Tables\Columns\ImageColumn::make('images')
+                // ->disk('public')
+                // ->circular(), 
             ])
             ->filters([
                 // Add filters if needed

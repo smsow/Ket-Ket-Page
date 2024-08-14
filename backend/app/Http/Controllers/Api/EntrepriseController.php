@@ -20,6 +20,13 @@ class EntrepriseController extends Controller
     {
         $validatedData = $request->validated();
 
+        // Convert images array to JSON if it exists
+        if (isset($validatedData['images']) && is_array($validatedData['images'])) {
+            $validatedData['images'] = json_encode($validatedData['images']);
+        } else {
+            $validatedData['images'] = null; // or '' if you prefer an empty string
+        }
+
         // Create the Entreprise record
         $entreprise = Entreprise::create($validatedData);
 
