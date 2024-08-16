@@ -10,44 +10,85 @@ use Illuminate\Http\JsonResponse;
 
 class EntrepriseController extends Controller
 {
-    public function index()
+    public function index(): JsonResponse
     {
         $entreprises = Entreprise::all();
-        return response()->json(['message' => 'Liste des entreprises récupérée avec succès.', 'data' => $entreprises], 200);
+        return response()->json([
+            'message' => 'Liste des entreprises récupérée avec succès.',
+            'data' => $entreprises
+        ], 200);
     }
 
     public function store(StoreEntrepriseRequest $request): JsonResponse
     {
         $validatedData = $request->validated();
 
-        // Convert images array to JSON if it exists
-        if (isset($validatedData['images']) && is_array($validatedData['images'])) {
-            $validatedData['images'] = json_encode($validatedData['images']);
-        } else {
-            $validatedData['images'] = null; // or '' if you prefer an empty string
-        }
-
-        // Create the Entreprise record
+        // Création de l'entreprise
         $entreprise = Entreprise::create($validatedData);
 
-        return response()->json(['message' => 'Entreprise créée avec succès.', 'data' => $entreprise], 201);
-    }
-    public function show($id)
-    {
-        $entreprise = Entreprise::findOrFail($id);
-        return response()->json(['message' => 'Détails de l\'entreprise récupérés avec succès.', 'data' => $entreprise], 200);
+        // Réponse JSON
+        return response()->json([
+            'message' => 'Entreprise créée avec succès.',
+            'data' => $entreprise->only([
+                'nom',
+                'numero',
+                'siege',
+                'secteur_activite',
+                'nombre_employes',
+                'quartier',
+                'date_creation',
+                'date_modification',
+                'latitude',
+                'longitude',
+                'adresse_id', // Correction ici pour inclure 'adresse_id'
+                'contact_id',
+                'created_at',
+                'updated_at',
+                'id'
+            ]),
+        ], 201);
     }
 
-    public function update(UpdateEntrepriseRequest $request, $id)
+    public function show($id): JsonResponse
+    {
+        $entreprise = Entreprise::findOrFail($id);
+        return response()->json([
+            'message' => 'Détails de l\'entreprise récupérés avec succès.',
+            'data' => $entreprise
+        ], 200);
+    }
+
+    public function update(UpdateEntrepriseRequest $request, $id): JsonResponse
     {
         $entreprise = Entreprise::findOrFail($id);
         $entreprise->update($request->validated());
-        return response()->json(['message' => 'Entreprise mise à jour avec succès.', 'data' => $entreprise], 200);
+
+        return response()->json([
+            'message' => 'Entreprise mise à jour avec succès.',
+            'data' => $entreprise->only([
+                'nom',
+                'numero',
+                'siege',
+                'secteur_activite',
+                'nombre_employes',
+                'quartier',
+                'date_creation',
+                'date_modification',
+                'latitude',
+                'longitude',
+                'adresse_id', // Correction ici pour inclure 'adresse_id'
+                'contact_id',
+                'updated_at',
+                'id'
+            ]),
+        ], 200);
     }
 
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
         Entreprise::destroy($id);
-        return response()->json(['message' => 'Entreprise supprimée avec succès.'], 204);
+        return response()->json([
+            'message' => 'Entreprise supprimée avec succès.'
+        ], 204);
     }
 }

@@ -11,7 +11,6 @@ class UpdateEntrepriseRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        // Retourne true pour permettre à tous les utilisateurs d'effectuer cette requête
         return true;
     }
 
@@ -33,7 +32,8 @@ class UpdateEntrepriseRequest extends FormRequest
             'date_modification' => 'nullable|date',
             'latitude' => 'nullable|numeric',
             'longitude' => 'nullable|numeric',
-            'images' => 'nullable|string', // Modification ici pour utiliser une chaîne de caractères
+            'images' => 'nullable|string',
+            'adresse_id' => 'required|exists:adresses,id', // Correction ici pour rendre 'adresse_id' obligatoire
             'contact_id' => 'nullable|exists:contact_partenaire,id',
         ];
     }
@@ -65,6 +65,8 @@ class UpdateEntrepriseRequest extends FormRequest
             'latitude.numeric' => 'La latitude doit être un nombre.',
             'longitude.numeric' => 'La longitude doit être un nombre.',
             'images.string' => 'Les images doivent être une chaîne de caractères.',
+            'adresse_id.required' => 'L\'adresse est requise.',
+            'adresse_id.exists' => 'L\'adresse sélectionnée doit exister dans la base de données.',
             'contact_id.exists' => 'Le contact partenaire sélectionné doit exister dans la base de données.',
         ];
     }

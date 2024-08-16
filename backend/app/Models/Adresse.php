@@ -18,4 +18,9 @@ class Adresse extends Model
         'latitude',
         'longitude',
     ];
+
+    public function entreprises()
+    {
+        return $this->hasMany(Entreprise::class, 'adresse_id');
+    }
 }

@@ -32,7 +32,8 @@ class StoreEntrepriseRequest extends FormRequest
             'date_modification' => 'nullable|date',
             'latitude' => 'nullable|numeric',
             'longitude' => 'nullable|numeric',
-            'images' => 'nullable|string', // Update this to string
+            'images' => 'nullable|string',
+            'adresse_id' => 'required|exists:adresses,id', // Correction ici pour rendre 'adresse_id' obligatoire
             'contact_id' => 'nullable|exists:contact_partenaire,id',
         ];
     }
@@ -64,7 +65,9 @@ class StoreEntrepriseRequest extends FormRequest
             'latitude.numeric' => 'La latitude doit être un nombre.',
             'longitude.numeric' => 'La longitude doit être un nombre.',
             'images.string' => 'Les images doivent être une chaîne de caractères.',
-            'contact_id.exists' => 'Le contact partenaire doit exister dans la base de données.',
+            'adresse_id.required' => 'L\'adresse est requise.',
+            'adresse_id.exists' => 'L\'adresse sélectionnée doit exister dans la base de données.',
+            'contact_id.exists' => 'Le contact partenaire sélectionné doit exister dans la base de données.',
         ];
     }
 }
