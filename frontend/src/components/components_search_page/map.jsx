@@ -48,7 +48,7 @@ import L from 'leaflet';
 //   return null;
 // }
 
-export default function Map( {latitude=14.68128, longitude=-17.4567, entrepriseName}) {
+export default function Map( {latitude=14.71128, longitude=-17.4567, entrepriseName}) {
   const defaultPosition = [Number(latitude), Number(longitude)]; // Central position for Dakar
   const [positions, setPositions] = useState([Number(latitude), Number(longitude) ]);
 
@@ -168,34 +168,30 @@ export default function Map( {latitude=14.68128, longitude=-17.4567, entrepriseN
 //       document.body.removeChild(geocoderScript);
 //     };
 //   }, []);
-
 function LocationMarker() {
-    const [positions, setPositions] = useState([Number(latitude), Number(longitude) ]);
-    const map = useMap();
+  const [positions, setPositions] = useState([Number(latitude), Number(longitude)]);
+  const map = useMap();
 
-    useEffect(() => {
-      if (positions) {
-        map.flyTo(positions, map.getZoom());
-      }
-    }, [positions, map]);
-  
-    useMapEvents({
-      click() {
-        map.locate(); 
-      },
-      locationfound(e) {
-        setPositions(e.latlng); 
-      },
-    });
+  useEffect(() => {
+    if (positions.length > 0) {
+      
+      map.setView(positions, 13);
+    }
+  }, [positions, map]);
 
-    // function MultipleMarkers() {
-    //   const [positions, setPositions]= useState([Number(latitude), Number(longitude)]);
-    //   const map = useMap();
+  useMapEvents({
+    click() {
+      map.locate({ setView: true });
+    },
+    locationfound(e) {
+      setPositions([e.latlng.lat, e.latlng.lng]); 
+      const currentZoom = map.getZoom(10); 
+      const newZoom = currentZoom + 10; 
+      map.flyTo(e.latlng, newZoom);
+    },
+  });
 
-    //   if (l)
 
-    // }
-  
     return  (
       <Marker icon={markerIconclicked} position={positions}>
          <Popup>{entrepriseName}, {latitude}, {longitude}</Popup>
@@ -203,18 +199,16 @@ function LocationMarker() {
     )
   }
 
+  
 
   return (
-    <MapContainer  center={positions} zoom={25} style={{ height: '100vh', width: '100%' }}>
+    <MapContainer  center={positions} zoom={13} style={{ height: '100vh', width: '100%' }}>
       <TileLayer
         url='https://tile.jawg.io/jawg-lagoon/{z}/{x}/{y}{r}.png?access-token=2U5baWI92SCFF5D9Gp53vRanR2r9g5TQ6X5qhEY4Z0tIQUijlbOEbW2eZmOLGfx9'
         attribution='<a href="https://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-     
-        <LocationMarker key={entrepriseName} position={positions} icon={markerIcon}>
-        </LocationMarker>
 
-        {locations.map(({ nom, latitude, longitude }, index) => (
+{locations.map(({ nom, latitude, longitude }, index) => (
         <Marker
           key={index} // Use a unique key if possible
           position={[
@@ -228,6 +222,11 @@ function LocationMarker() {
           </Popup>
         </Marker>
       ))}
+
+        <LocationMarker key={entrepriseName} position={positions} icon={markerIcon}>
+        </LocationMarker>
+
+    
 
       {/* {typeof L.Control.Geocoder !== 'undefined' && <Geocoder />} */}
        {/* Conditional rendering */}
