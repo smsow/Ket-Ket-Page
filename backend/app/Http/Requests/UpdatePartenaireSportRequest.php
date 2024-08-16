@@ -28,10 +28,12 @@ class UpdatePartenaireSportRequest extends FormRequest
             'date_modification' => 'nullable|date',
             'latitude' => 'sometimes|numeric',
             'longitude' => 'sometimes|numeric',
-            'images.array' => 'Le champ images doit être un tableau.',
-            'images.*.string' => 'Chaque image doit être une chaîne de caractères.',
+            'images.array' => 'nullable|array',
+            'images.*' => 'nullable|string|max:255',
             'contact_id' => 'sometimes|exists:contact_partenaire,id',
             'description' => 'nullable|string',
+            'reduction_mensualite' => 'nullable|numeric|min:0|max:100',
+            'reduction_inscription' => 'nullable|numeric|min:0|max:100',
         ];
     }
 
@@ -54,6 +56,12 @@ class UpdatePartenaireSportRequest extends FormRequest
             'images.*.file' => 'Chaque élément dans les images doit être un fichier valide.',
             'images.*.mimes' => 'Chaque image doit être au format JPG, JPEG, PNG, ou BMP.',
             'images.*.max' => 'Chaque image ne doit pas dépasser 5 Mo.',
+            'reduction_mensualite.numeric' => 'La réduction de mensualité doit être un nombre.',
+            'reduction_mensualite.min' => 'La réduction de mensualité ne peut pas être inférieure à 0.',
+            'reduction_mensualite.max' => 'La réduction de mensualité ne peut pas dépasser 100.',
+            'reduction_inscription.numeric' => "La réduction d'inscription doit être un nombre.",
+            'reduction_inscription.min' => "La réduction d'inscription ne peut pas être inférieure à 0.",
+            'reduction_inscription.max' => "La réduction d'inscription ne peut pas dépasser 100.",
             'contact_id.sometimes' => "L'identifiant de contact peut être modifié.",
             'contact_id.exists' => "L'identifiant de contact doit exister dans la table contact_partenaire.",
         ];
