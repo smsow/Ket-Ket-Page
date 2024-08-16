@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\EntrepriseController;
 use App\Http\Controllers\Api\MediaItemController;
         use App\Http\Controllers\Api\NumberController;
     use App\Http\Controllers\Api\OperationController;
+use App\Http\Controllers\Api\PaiementController;
 use App\Http\Controllers\Api\PartenaireSportController;
 use App\Http\Controllers\Api\PartnerForm1Controller;
     use App\Http\Controllers\Api\PartnerForm2Controller;
@@ -373,3 +374,5 @@ Route::delete('partners-form4/{id}', [PartnerForm4Controller::class, 'destroy'])
                     Route::post('abonnements/', [AbonnementController::class, 'store']);
                     Route::put('abonnements/{id}', [AbonnementController::class, 'update']);
                     Route::delete('abonnements/{id}', [AbonnementController::class, 'destroy']);
+//route paiements
+Route::apiResource('paiements', PaiementController::class);
