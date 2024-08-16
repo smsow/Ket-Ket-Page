@@ -20,7 +20,6 @@ class CreateEntrepriseTable extends Migration
             $table->date('date_modification')->nullable();
             $table->decimal('latitude', 10, 7);
             $table->decimal('longitude', 10, 7);
-            $table->string('images')->nullable();
             $table->unsignedBigInteger('contact_id');
 
             $table->foreign('contact_id')->references('id')->on('contact_partenaire')->onDelete('cascade');

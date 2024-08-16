@@ -24,6 +24,7 @@ class UpdateActivityRequest extends FormRequest
         return [
             'text' => 'sometimes|string|max:255',
             'image' => 'sometimes|string|max:255',
+            'description' => 'sometimes|string|max:1000', // Ajout de la validation pour description
         ];
     }
 
@@ -41,6 +42,9 @@ class UpdateActivityRequest extends FormRequest
             'image.sometimes' => 'L\'image est optionnelle.',
             'image.string' => 'L\'image doit être une chaîne de caractères.',
             'image.max' => 'L\'image ne peut pas dépasser 255 caractères.',
+            'description.sometimes' => 'La description est optionnelle.', // Message pour la description
+            'description.string' => 'La description doit être une chaîne de caractères.', // Message pour la description
+            'description.max' => 'La description ne peut pas dépasser 1000 caractères.', // Message pour la description
         ];
     }
 }

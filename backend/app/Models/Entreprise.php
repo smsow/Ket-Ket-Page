@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Entreprise extends Model
 {
+    use HasFactory;
+
     protected $table = 'entreprise';
 
     protected $fillable = [
@@ -19,15 +22,18 @@ class Entreprise extends Model
         'date_modification',
         'latitude',
         'longitude',
-        'images',
-        'contact_id'
+        //'images',
+        'contact_id',
+        'adresse_id'  // Ajoutez cette ligne
     ];
-    // protected $casts = [
-    //     'images' => 'array',
-    // ];
 
     public function contactPartenaire()
     {
         return $this->belongsTo(ContactPartenaire::class, 'contact_id');
+    }
+
+    public function adresse()
+    {
+        return $this->belongsTo(Adresse::class, 'adresse_id');
     }
 }

@@ -25,7 +25,13 @@ class PartenaireSport extends Model
         'longitude',
         'images',
         'contact_id',
-        'description'
+        'description',
+        'reduction_mensualite',  // Nouveau champ ajouté
+        'reduction_inscription', // Nouveau champ ajouté
+    ];
+
+    protected $casts = [
+        'images' => 'array',
     ];
 
     public function contactPartenaire()

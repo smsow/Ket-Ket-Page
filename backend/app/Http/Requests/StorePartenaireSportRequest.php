@@ -28,9 +28,12 @@ class StorePartenaireSportRequest extends FormRequest
             'date_modification' => 'nullable|date',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
-            'images' => 'nullable|string|max:255',
+            'images.array' => 'nullable|array',
+            'images.*' => 'nullable|string|max:255',
             'contact_id' => 'required|exists:contact_partenaire,id',
             'description' => 'nullable|string',
+            'reduction_mensualite' => 'nullable|numeric|min:0|max:100',
+            'reduction_inscription' => 'nullable|numeric|min:0|max:100',
         ];
     }
 
@@ -49,8 +52,17 @@ class StorePartenaireSportRequest extends FormRequest
             'date_creation.required' => 'La date de création est obligatoire.',
             'latitude.required' => 'La latitude est obligatoire.',
             'longitude.required' => 'La longitude est obligatoire.',
+            'images.array' => 'Le champ images doit être un tableau.',
+            'images.*.string' => 'Chaque image doit être une chaîne de caractères.',
             'contact_id.required' => "L'identifiant de contact est obligatoire.",
             'contact_id.exists' => "L'identifiant de contact doit exister dans la table contact_partenaire.",
+            'reduction_mensualite.numeric' => 'La réduction de mensualité doit être un nombre.',
+            'reduction_mensualite.min' => 'La réduction de mensualité ne peut pas être inférieure à 0.',
+            'reduction_mensualite.max' => 'La réduction de mensualité ne peut pas dépasser 100.',
+            'reduction_inscription.numeric' => "La réduction d'inscription doit être un nombre.",
+            'reduction_inscription.min' => "La réduction d'inscription ne peut pas être inférieure à 0.",
+            'reduction_inscription.max' => "La réduction d'inscription ne peut pas dépasser 100.",
         ];
     }
+
 }

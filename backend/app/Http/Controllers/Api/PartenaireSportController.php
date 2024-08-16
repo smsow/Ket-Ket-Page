@@ -17,10 +17,14 @@ class PartenaireSportController extends Controller
 
     public function store(StorePartenaireSportRequest $request)
     {
-        $partenaire = PartenaireSport::create($request->validated());
+        // Valider et récupérer les données
+        $data = $request->validated();
+
+        // Créer un nouveau partenaire sportif
+        $partenaire = PartenaireSport::create($data);
+
         return response()->json(['message' => 'Partenaire sportif créé avec succès.', 'data' => $partenaire], 201);
     }
-
     public function show($id)
     {
         $partenaire = PartenaireSport::findOrFail($id);
@@ -30,7 +34,13 @@ class PartenaireSportController extends Controller
     public function update(UpdatePartenaireSportRequest $request, $id)
     {
         $partenaire = PartenaireSport::findOrFail($id);
-        $partenaire->update($request->validated());
+
+        // Valider et récupérer les données
+        $data = $request->validated();
+
+        // Mettre à jour le partenaire sportif
+        $partenaire->update($data);
+
         return response()->json(['message' => 'Partenaire sportif mis à jour avec succès.', 'data' => $partenaire], 200);
     }
 
