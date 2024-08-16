@@ -28,7 +28,7 @@ class StorePartenaireSportRequest extends FormRequest
             'date_modification' => 'nullable|date',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
-            'images' => 'nullable|array',
+            'images.array' => 'nullable|array',
             'images.*' => 'nullable|string|max:255',
             'contact_id' => 'required|exists:contact_partenaire,id',
             'description' => 'nullable|string',

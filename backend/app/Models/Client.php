@@ -23,5 +23,10 @@ class Client extends Model
     {
         return $this->belongsTo(Entreprise::class);
     }
+    public function abonnements()
+    {
+        return $this->hasMany(Abonnement::class);
+    }
+
 
 }

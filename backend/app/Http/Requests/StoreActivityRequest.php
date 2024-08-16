@@ -24,6 +24,7 @@ class StoreActivityRequest extends FormRequest
         return [
             'text' => 'required|string|max:255',
             'image' => 'required|string|max:255',
+            'description' => 'nullable|string|max:1000', // Ajout de la règle de validation pour la description
         ];
     }
 
@@ -41,6 +42,9 @@ class StoreActivityRequest extends FormRequest
             'image.required' => 'L\'image est obligatoire.',
             'image.string' => 'L\'image doit être une chaîne de caractères.',
             'image.max' => 'L\'image ne peut pas dépasser 255 caractères.',
+            'description.nullable' => 'La description est obligatoire.', // Message pour la description
+            'description.string' => 'La description doit être une chaîne de caractères.', // Message pour la description
+            'description.max' => 'La description ne peut pas dépasser 1000 caractères.', // Message pour la description
         ];
     }
 }

@@ -3,7 +3,8 @@
                     use App\Http\Controllers\Api\ArticleController;
                     use App\Http\Controllers\Api\AccolandController;
                     use App\Http\Controllers\AboutController;
-                use App\Http\Controllers\Api\ActivityController;
+use App\Http\Controllers\Api\AbonnementController;
+use App\Http\Controllers\Api\ActivityController;
 use App\Http\Controllers\Api\AdresseController;
 use App\Http\Controllers\Api\AdvantageController;
             use App\Http\Controllers\Api\ApiPartenaireController;
@@ -366,3 +367,9 @@ Route::delete('partners-form4/{id}', [PartnerForm4Controller::class, 'destroy'])
 
                         // Route pour supprimer une adresse par ID
                         Route::delete('adresses/{adresse}', [AdresseController::class, 'destroy']); // DELETE /api/adresses/{id}
+                    //route abonnement
+                    Route::get('abonnements/', [AbonnementController::class, 'index']);
+                    Route::get('abonnements/{id}', [AbonnementController::class, 'show']);
+                    Route::post('abonnements/', [AbonnementController::class, 'store']);
+                    Route::put('abonnements/{id}', [AbonnementController::class, 'update']);
+                    Route::delete('abonnements/{id}', [AbonnementController::class, 'destroy']);

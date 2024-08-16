@@ -23,6 +23,9 @@ class ActivityResource extends Resource
                 Forms\Components\TextInput::make('text')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextArea::make('description') // Modified description field
+                    ->nullable() // Make description nullable
+                    ->maxLength(1000),
                 Forms\Components\FileUpload::make('image')
                     ->required()
                     ->disk('public') // Ensure the disk is configured in config/filesystems.php
@@ -38,6 +41,9 @@ class ActivityResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('text')
                     ->limit(50),
+                Tables\Columns\TextColumn::make('description') // Display description column
+                    ->limit(100)
+                    ->label('Description'),
                 Tables\Columns\ImageColumn::make('image')
                     ->disk('public')
                     ->label('Image'),
