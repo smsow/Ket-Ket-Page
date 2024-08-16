@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreAbonnementRequest;
+use App\Http\Requests\UpdateAbonnementRequest;
 use App\Models\Abonnement;
 use Illuminate\Http\Request;
 
@@ -10,54 +12,57 @@ class AbonnementController extends Controller
 {
     public function index()
     {
+        // Fetch all abonnements
         $abonnements = Abonnement::all();
-        return response()->json($abonnements);
+
+        // Check if any abonnements were found
+        if ($abonnements->isEmpty()) {
+            return response()->json([
+                'message' => 'No abonnements found.',
+                'data' => []
+            ], 404);
+        }
+
+        // Return the list of abonnements with a success message
+        return response()->json([
+            'message' => 'Abonnements retrieved successfully.',
+            'data' => $abonnements
+        ], 200);
     }
 
     public function show($id)
     {
         $abonnement = Abonnement::findOrFail($id);
-        return response()->json($abonnement);
+        return response()->json([
+            'message' => 'Abonnement retrieved successfully.',
+            'data' => $abonnement
+        ], 200);
     }
 
-    public function store(Request $request)
+    public function store(StoreAbonnementRequest $request)
     {
-        $validated = $request->validate([
-            'nom' => 'required|string|max:255',
-            'client_id' => 'required|exists:clients,id',
-            'service_id' => 'required|exists:services,id',
-            'duree' => 'required|numeric',
-            'date_fin' => 'required|date',
-            'date_creation' => 'required|date',
-            'type' => 'required|string|max:255',
-            'status' => 'required|string|max:255',
-            'date_debut' => 'required|date',
-        ]);
+        $validated = $request->validated();
 
         $abonnement = Abonnement::create($validated);
 
-        return response()->json($abonnement, 201);
+        return response()->json([
+            'message' => 'Abonnement created successfully.',
+            'data' => $abonnement
+        ], 201);
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateAbonnementRequest $request, $id)
     {
         $abonnement = Abonnement::findOrFail($id);
 
-        $validated = $request->validate([
-            'nom' => 'sometimes|required|string|max:255',
-            'client_id' => 'sometimes|required|exists:clients,id',
-            'service_id' => 'sometimes|required|exists:services,id',
-            'duree' => 'sometimes|required|numeric',
-            'date_fin' => 'sometimes|required|date',
-            'date_creation' => 'sometimes|required|date',
-            'type' => 'sometimes|required|string|max:255',
-            'status' => 'sometimes|required|string|max:255',
-            'date_debut' => 'sometimes|required|date',
-        ]);
+        $validated = $request->validated();
 
         $abonnement->update($validated);
 
-        return response()->json($abonnement);
+        return response()->json([
+            'message' => 'Abonnement updated successfully.',
+            'data' => $abonnement
+        ]);
     }
 
     public function destroy($id)
@@ -65,6 +70,8 @@ class AbonnementController extends Controller
         $abonnement = Abonnement::findOrFail($id);
         $abonnement->delete();
 
-        return response()->json(null, 204);
+        return response()->json([
+            'message' => 'Abonnement deleted successfully.'
+        ], 204);
     }
 }
