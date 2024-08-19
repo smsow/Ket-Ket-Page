@@ -14,5 +14,9 @@ class Activity extends Model
         'image',
         'description',
     ];
-}
 
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'activite_id');
+    }
+}

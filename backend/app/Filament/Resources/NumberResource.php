@@ -13,6 +13,7 @@ use Filament\Tables;
 class NumberResource extends Resource
 {
     protected static ?string $model = Number::class;
+    protected static ?string $navigationGroup = 'Number Management';
 
     protected static ?string $navigationIcon = 'heroicon-o-hashtag';
 

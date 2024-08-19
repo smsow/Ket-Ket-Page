@@ -13,7 +13,7 @@ use Filament\Tables;
 class StaticDecouverteResource extends Resource
 {
     protected static ?string $model = StaticDecouverte::class;
-
+    protected static ?string $navigationGroup = 'Contenu Statique';
     protected static ?string $navigationIcon = 'heroicon-o-light-bulb'; // Icone adéquate
 
     public static function form(Form $form): Form

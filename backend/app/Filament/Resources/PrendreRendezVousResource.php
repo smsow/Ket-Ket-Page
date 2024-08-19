@@ -17,6 +17,7 @@ use Filament\Tables\Actions\DeleteAction;
 class PrendreRendezVousResource extends Resource
 {
     protected static ?string $model = PrendreRendezVous::class;
+    protected static ?string $navigationGroup = 'Gestion des Rendez-vous';
 
     protected static ?string $navigationIcon = 'heroicon-o-calendar';
 

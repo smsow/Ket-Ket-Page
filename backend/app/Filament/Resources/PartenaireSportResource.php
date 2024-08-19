@@ -14,6 +14,8 @@ use Filament\Tables\Columns\ImageColumn;
 class PartenaireSportResource extends Resource
 {
     protected static ?string $model = PartenaireSport::class;
+    protected static ?string $navigationGroup = 'Gestion des Partenaires Sport';
+
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 

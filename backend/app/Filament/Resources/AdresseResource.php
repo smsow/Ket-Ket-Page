@@ -16,6 +16,7 @@ use Filament\Tables\Columns\TextColumn;
 class AdresseResource extends Resource
 {
     protected static ?string $model = Adresse::class;
+    protected static ?string $navigationGroup = 'Gestion des adresses'; 
 
     protected static ?string $navigationIcon = 'heroicon-o-location-marker';
 

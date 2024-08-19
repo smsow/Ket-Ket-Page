@@ -15,6 +15,7 @@ class ActivityResource extends Resource
     protected static ?string $model = Activity::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection'; // Change to appropriate icon
+    protected static ?string $navigationGroup = 'Gestion des Activités'; // Set your desired group name here
 
     public static function form(Form $form): Form
     {

@@ -18,6 +18,8 @@ class AccolandResource extends Resource
     protected static ?string $model = Accoland::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-folder';
+    protected static ?string $navigationGroup = 'Gestion du contenu'; // Set your desired group name here
+
 
     public static function form(Form $form): Form
     {

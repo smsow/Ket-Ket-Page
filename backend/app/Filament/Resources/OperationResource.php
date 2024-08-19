@@ -13,6 +13,7 @@ use Filament\Tables;
 class OperationResource extends Resource
 {
     protected static ?string $model = Operation::class;
+    protected static ?string $navigationGroup = 'Operations';
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 

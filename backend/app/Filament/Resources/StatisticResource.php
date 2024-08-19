@@ -14,6 +14,7 @@ use Filament\Tables;
 class StatisticResource extends Resource
 {
     protected static ?string $model = Statistic::class;
+    protected static ?string $navigationGroup = 'Gestion Satisfactions';
 
     protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
 

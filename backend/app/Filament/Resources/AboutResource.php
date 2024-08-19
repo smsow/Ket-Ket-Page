@@ -13,7 +13,7 @@ use Filament\Tables;
 class AboutResource extends Resource
 {
     protected static ?string $model = About::class;
-    
+    protected static ?string $navigationGroup = 'Gestion du contenu';
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-list';
 
     public static function form(Form $form): Form
