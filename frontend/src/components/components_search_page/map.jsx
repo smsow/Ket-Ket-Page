@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, LayersControl, Popup, useMap, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -53,7 +53,8 @@ export default function Map( {latitude=14.71128, longitude=-17.4567, entrepriseN
   const [positions, setPositions] = useState([Number(latitude), Number(longitude) ]);
 
   const [locations, setLocations] = useState([]);
-  const [useStaticImage, setUseStaticImage] = useState(false); // State to decide which image to use
+  const [useStaticImage, setUseStaticImage] = useState(false);
+  const { BaseLayer } = LayersControl;
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/partenaire-sports', {
@@ -185,16 +186,14 @@ function LocationMarker() {
     },
     locationfound(e) {
       setPositions([e.latlng.lat, e.latlng.lng]); 
-      const currentZoom = map.getZoom(10); 
-      const newZoom = currentZoom + 10; 
-      map.flyTo(e.latlng, newZoom);
+      map.flyTo(e.latlng, 20);
     },
   });
 
 
     return  (
       <Marker icon={markerIconclicked} position={positions}>
-         <Popup>{entrepriseName}, {latitude}, {longitude}</Popup>
+         <Popup><h2 className='text-h4 font-quicksand text-main-red font-semibold leading-h4'>{entrepriseName }</h2> <br />, {latitude}, {longitude}</Popup>
       </Marker>
     )
   }
@@ -203,10 +202,28 @@ function LocationMarker() {
 
   return (
     <MapContainer  center={positions} zoom={13} style={{ height: '100vh', width: '100%' }}>
+      <LayersControl>
+      <BaseLayer checked name="Terrain - World Imagery">
+      <TileLayer
+        url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+        attribution='<a href="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+      </BaseLayer>
+        <BaseLayer checked name="Jawg-Lagoon">
       <TileLayer
         url='https://tile.jawg.io/jawg-lagoon/{z}/{x}/{y}{r}.png?access-token=2U5baWI92SCFF5D9Gp53vRanR2r9g5TQ6X5qhEY4Z0tIQUijlbOEbW2eZmOLGfx9'
         attribution='<a href="https://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
+      </BaseLayer>
+
+
+      {/* <BaseLayer checked name="Stadia.AlidadeSatellite">
+      <TileLayer
+        url='https://a.data.osmbuildings.org/0.2/ph2apjye/tile/15/{x}/{y}.json'
+        attribution='<a href="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+      </BaseLayer> */}
+      
 
 {locations.map(({ nom, latitude, longitude }, index) => (
         <Marker
@@ -218,7 +235,9 @@ function LocationMarker() {
           icon={markerIcon}
         >
           <Popup>
-            {nom }, {latitude ?? 14.8928}, {longitude ?? -17.4467}
+            <div className="">
+            <h2 className='text-h4 font-quicksand font-semibold leading-h4'>{nom }</h2> <br />, {latitude ?? 14.8928}, {longitude ?? -17.4467}
+            </div>
           </Popup>
         </Marker>
       ))}
@@ -228,8 +247,7 @@ function LocationMarker() {
 
     
 
-      {/* {typeof L.Control.Geocoder !== 'undefined' && <Geocoder />} */}
-       {/* Conditional rendering */}
+       </LayersControl>
     </MapContainer>
   );
 }

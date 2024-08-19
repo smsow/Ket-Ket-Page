@@ -2,20 +2,36 @@ import React, { useEffect, useState } from 'react';
 import ComponentSearch from "./small_components/component_search";
 import gym1 from "../../img/gym1.webp";
 import 'leaflet/dist/leaflet.css';
+import ScrollableContainer from './small_components/checkbox_endpoint';
 
 
 
-export default function Search_main({setSelectedEnterprise}) {
+export default function Search_main({setSelectedEnterprise, onOpenModal, checkboxState }) {
     const [activeIndex, setActiveIndex] = useState(null);
 
     const [isClicked, setIsClicked] = useState(false);
+
+
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleCheckboxChange = (checked) => {
+      setIsChecked(checked);
+    };
     
+  
+  
   const handleDivClick = (index, location) => { 
     setSelectedEnterprise(location);
     setActiveIndex(index); // Set the active index
   };
+
+
+  const handleButtonClick = () => {
+    console.log('Button clicked!');
+};
     const [locations, setLocations] = useState([]);
-  const [useStaticImage, setUseStaticImage] = useState(false); // State to decide which image to use
+  const [useStaticImage, setUseStaticImage] = useState(false); 
+  
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/partenaire-sports', {
@@ -95,7 +111,7 @@ export default function Search_main({setSelectedEnterprise}) {
             </div>
             <div className="h-[95px] w-[100%]  flex justify-center">
 
-                <button className="w-[250px] h-[60px] bg-white border-[#1D428A] border-2 rounded-[15px] mx-auto mt-[25px] flex items-center justify-center gap-[10px]">
+                <button onClick={onOpenModal} className="w-[250px] h-[60px] bg-white border-[#1D428A] border-2 rounded-[15px] mx-auto mt-[25px] flex items-center justify-center gap-[10px]">
                     <h4 className="text-h6 text-main-blue font-bold font-quicksand">
                     Filtrer les résultats
                     </h4>
@@ -105,7 +121,32 @@ export default function Search_main({setSelectedEnterprise}) {
 
                 </button>
             </div>
-            <div className=" h-[50px] w-[100%]"></div>
+            <div className="h-[60px] bg-slate-400 ml-[2.25%] w-[700px] overflow-x-auto flex gap-[9px]">
+            {isChecked && (
+        <ScrollableContainer
+          title="Salle de Sport"
+          onButtonClick={handleButtonClick}
+          checkboxState={checkboxState}
+        />
+      )}
+      
+
+            
+            {/* <ScrollableContainer
+                title="Salle de Sport"
+                onButtonClick={handleButtonClick}
+            />
+            <ScrollableContainer
+                title="Salle de Sport"
+                onButtonClick={handleButtonClick}
+            />
+
+<ScrollableContainer
+                title="Salle de Sport"
+                onButtonClick={handleButtonClick}
+            /> */}
+      
+        </div>
             <div className="h-[805px] w-[100%]  overflow-y-scroll">
                 <div className="wrapper h-auto w-[100%] flex flex-col gap-[18px]">
                 {locations.map((location, index) => (
@@ -120,11 +161,11 @@ export default function Search_main({setSelectedEnterprise}) {
           Time={location.horaire || fallbackLocations[index % fallbackLocations.length].time}
           pNumber={location.numero || fallbackLocations[index % fallbackLocations.length].pNumber}
           Location={location.address || fallbackLocations[index % fallbackLocations.length].location}
-          isClicked={activeIndex === index} // Pass the clicked state
-          onDivClick={() => handleDivClick(index, location)} // Pass the click handler
+          isClicked={activeIndex === index} 
+          onDivClick={() => handleDivClick(index, location)} 
         />
       ))}
-                     <ComponentSearch backgroundImage={gym1}
+                     {/* <ComponentSearch backgroundImage={gym1}
                 Title={"Life Fitness"}
                 Time = {"10:00 - 22:00"}
                 pNumber={"771542149"}
@@ -144,7 +185,8 @@ export default function Search_main({setSelectedEnterprise}) {
                 pNumber={"33 820 00 32"}
                 Location={`Virage de Ngor, Lot numéro 18, Dakar 12000`}
                 
-                />                <div className="bg-white h-[228px] w-[662px] border-[#1D428A] border-2 rounded-[5px] shadow-shadow-search mt-[5px] ml-[36px]"></div>
+                />             */}
+                    <div className="bg-white h-[228px] w-[662px] border-[#1D428A] border-2 rounded-[5px] shadow-shadow-search mt-[5px] ml-[36px]"></div>
                 <div className="bg-white h-[228px] w-[662px] border-[#1D428A] border-2 rounded-[5px] shadow-shadow-search mt-[5px] ml-[36px]"></div>
                 </div>
             </div>
