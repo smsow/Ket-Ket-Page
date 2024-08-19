@@ -18,7 +18,7 @@ use Filament\Tables\Columns\ImageColumn;
 class MediaItemResource extends Resource
 {
     protected static ?string $model = MediaItem::class;
-
+    protected static ?string $navigationGroup = 'Media';
     // Utiliser une icône plus appropriée pour les éléments média
     protected static ?string $navigationIcon = 'heroicon-o-photograph';
 

@@ -13,7 +13,7 @@ use Filament\Resources\Resource;
 class DevenerPartenaireResource extends Resource
 {
     protected static ?string $model = DevenerPartenaire::class;
-
+    protected static ?string $navigationGroup = 'Devenir Partenaires'; 
     protected static ?string $navigationIcon = 'heroicon-o-user-group'; 
     public static function form(Form $form): Form
     {

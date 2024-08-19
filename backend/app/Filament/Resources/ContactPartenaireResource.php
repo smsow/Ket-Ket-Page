@@ -18,6 +18,7 @@ class ContactPartenaireResource extends Resource
     protected static ?string $model = ContactPartenaire::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
+    protected static ?string $navigationGroup = 'Contacts Partenaires'; 
 
     public static function form(Form $form): Form
     {

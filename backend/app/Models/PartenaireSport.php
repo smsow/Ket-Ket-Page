@@ -38,4 +38,8 @@ class PartenaireSport extends Model
     {
         return $this->belongsTo(ContactPartenaire::class, 'contact_id');
     }
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'partenaire_sport_id');
+    }
 }

@@ -13,6 +13,7 @@ use Filament\Tables;
 class PartnerForm2Resource extends Resource
 {
     protected static ?string $model = PartnerForm2::class;
+    protected static ?string $navigationGroup = 'Gestion des Partenaires Formulaire 2 ';
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 

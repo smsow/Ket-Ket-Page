@@ -15,7 +15,7 @@ use Filament\Forms\Components\Select;
 class EntrepriseResource extends Resource
 {
     protected static ?string $model = Entreprise::class;
-
+    protected static ?string $navigationGroup = 'Entreprises'; 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form

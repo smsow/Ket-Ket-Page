@@ -17,7 +17,7 @@ use Filament\Tables\Actions\DeleteAction;
 class AdvantageResource extends Resource
 {
     protected static ?string $model = Advantage::class;
-
+    protected static ?string $navigationGroup = 'Avantages'; 
     protected static ?string $navigationIcon = 'heroicon-o-star';
 
     public static function form(Form $form): Form
